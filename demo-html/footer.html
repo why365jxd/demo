@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>div居底</title>
+    <style type="text/css">
+        #bom {
+            position: fixed;
+            left: 0px;
+            bottom: 0;
+            _position: absolute;
+            _top: expression(document.documentElement.clientHeight + document.documentElement.scrollTop - this.offsetHeight);
+            background: rgba(51, 51, 51, 0.82);
+            height: 100px;
+            width: 100%;
+            z-index: 99999;
+            text-align: center;
+        }
+
+        #bom img {
+            padding: 8px 0;
+        }
+
+        #bom .bom_area {
+            position: relative;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        #bom .bot_close {
+            position: absolute;
+            right: 105px;
+            top: -7px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            background-image: url("http://mm.bst.126.net/images/index/close_app2.png");
+        }
+    </style>
+</head>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".bot_close").click(function(){
+            $("#bom").hide();
+        });
+    });
+</script>
+
+<body>
+div居底
+<div style="height:1000px;"></div>
+
+<div id="bom">
+    <div class="bom_area">
+        <a href="#"><img src="http://haitao.nos.netease.com/2e042ab18b7f4ad9aee03eaa93b6cef5.jpg" alt="test"/></a>
+        <i class="bot_close"></i>
+    </div>
+</div>
+
+</body>
+</html>

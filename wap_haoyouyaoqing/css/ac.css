@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* 简单流媒体
+   注意: 流媒体要求您删除 HTML 中媒体的高度和宽度属性
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+
+img,
+object,
+embed,
+video {
+	max-width: 100%;
+}
+/* IE 6 不支持最大宽度，因此默认为 100% 宽度 */
+
+.ie6 img {
+	width: 100%;
+}
+/* 移动设备布局: 480px以下。 */
+
+.gridContainer {
+	width: 100%;
+	min-width: 320px;
+	min-height: 500px;
+	background-color: #fed4d5;
+	overflow-x: hidden;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
+}
+
+.h1_fz {
+    color: #e5004a;
+    padding: 18% 0 10% 0;
+	font-size: 42px;
+	font-size: 4.2rem;
+}
+.til_fz {
+	font-size: 16px;
+	font-size: 1.6rem;
+    line-height: 24px;
+    line-height: 2.4rem;
+}
+.sml_fz{
+    font-size: 13px;
+    font-size: 1.3rem;
+    line-height: 21px;
+    line-height: 2.1rem;
+}
+.tip_word{
+    font-size: 3rem;
+    color: #e5004b;
+}
+
+.pink {
+	color: #e5004b;
+}
+.black {
+	color: #333333;
+}
+.white {
+	color: #FFFFFF;
+}
+.gray{
+	color: #999999;
+}
+
+.tip_content{
+	margin: 0 auto;
+	color:#666666 ;
+	text-align: center;
+    background:url(../img/hyyq02.jpg) no-repeat;
+    width:100%;
+    height:auto;
+    background-size:100% 100%;
+}
+
+.tip_code{
+    color: #404040;
+    text-align: center;
+    background:url(../img/hyyq04.png) no-repeat;
+    width:100%;
+    height:auto;
+    background-size:100% 100%;
+}
+.tip_a{
+	width: 63%;
+	margin: 0 auto;
+}
+
+.clear{
+	clear: both;
+}
+
+/* iphone布局: 320px 至 414px。iphone4-6plus */
+@media only all and (min-width: 320px) and (max-width: 320px)  {
+
+}
+@media only all and (min-width: 375px) and (max-width: 375px)  {
+
+}
+@media only all and (min-width: 414px) and (max-width: 414px)  {
+
+}
+/* 平板电脑布局: 480px 至 720px。样式继承自: 移动设备布局。 */
+
+@media only all and (min-width: 480px) {
+	.gridContainer {
+		width: 100%;
+		max-width: 480px;
+		margin: 0 auto;
+	}
+	.h1_fz {
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+	.til_fz {
+		font-size: 20px;
+		font-size: 2.0rem;
+        line-height: 28px;
+        line-height: 2.8rem;
+	}
+    .sml_fz{
+        font-size: 26px;
+        font-size: 2.6rem;
+        line-height: 32px;
+        line-height: 3.2rem;
+    }
+
+}
+/* 平板电脑布局: 720px 至 960px。样式继承自: 移动设备布局。 */
+
+@media only all and (min-width: 720px) {
+	.gridContainer {
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.til_fz {
+		font-size: 26px;
+		font-size: 2.6rem;
+        line-height: 34px;
+        line-height: 3.4rem;
+	}
+	.h1_fz {
+		font-size: 36px;
+		font-size: 3.6rem;
+	}
+    .sml_fz{
+        font-size: 26px;
+        font-size: 2.6rem;
+        line-height: 32px;
+        line-height: 3.2rem;
+    }
+
+}
+
+

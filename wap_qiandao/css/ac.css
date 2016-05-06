@@ -1,0 +1,197 @@
+@charset "utf-8";
+/* 简单流媒体
+   注意: 流媒体要求您删除 HTML 中媒体的高度和宽度属性
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+
+img,
+object,
+embed,
+video {
+	max-width: 100%;
+}
+/* IE 6 不支持最大宽度，因此默认为 100% 宽度 */
+
+.ie6 img {
+	width: 100%;
+}
+/* 移动设备布局: 480px以下。 */
+
+.gridContainer {
+	width: 100%;
+	min-width: 320px;
+	min-height: 500px;
+	background-color: #FFFFFF;
+	overflow-x: hidden;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
+}
+.huge_fz {
+	font-size: 36px;
+	font-size: 3.6rem;
+}
+.h1_fz {
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+.til_fz {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+.sml_fz{
+    font-size: 12px;
+    font-size: 1.2rem;
+}
+.txt_fz {
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+.pink {
+	color: #e5004b;
+}
+.black {
+	color: #333333;
+}
+.white {
+	color: #FFFFFF;
+}
+.gray{
+	color: #999999;
+}
+
+/*活动页面样式*/
+
+.tip_content{
+	width:80%;
+	padding-bottom:5%;
+	margin: 0 auto;
+	color:#666666 ;
+	text-align: center;
+}
+.tip_money{
+    font-size: 5.5rem;
+    color: #e5004b;
+}
+
+.tip_a{
+	width: 63%;
+	margin: 0 auto;
+}
+
+.qiand_area{
+    padding: 3% 0;
+}
+
+.clear{
+	clear: both;
+}
+
+@media only all and (min-width: 375px) and (max-width: 375px)  {
+	.tip_bg{
+		height: 600px;
+	}
+}
+@media only all and (min-width: 414px) and (max-width: 414px)  {
+	.tip_bg{
+		height: 662.4px;
+	}
+}
+/* 平板电脑布局: 480px 至 720px。样式继承自: 移动设备布局。 */
+
+@media only all and (min-width: 480px) {
+	.gridContainer {
+		width: 100%;
+		max-width: 480px;
+		margin: 0 auto;
+	}
+	.huge_fz {
+		font-size: 46px;
+		font-size: 4.6rem;
+	}
+	.h1_fz {
+		font-size: 21px;
+		font-size: 2.1rem;
+	}
+	.til_fz {
+		font-size: 20px;
+		font-size: 2.0rem;
+	}
+    .sml_fz{
+        font-size: 26px;
+        font-size: 2.6rem;
+    }
+	.txt_fz {
+		font-size: 16px;
+		font-size: 1.6rem;
+	}
+	.f_fix {
+		padding-bottom: 110px;
+	}
+	.tip_font{
+		padding: 0%;
+		top: 35px;
+		/*margin-left: 0%;*/
+	}
+	.tip_bg{
+		height: 768px;
+	}
+}
+/* 平板电脑布局: 720px 至 960px。样式继承自: 移动设备布局。 */
+
+@media only all and (min-width: 720px) {
+	.gridContainer {
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.txt_fz {
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+	.til_fz {
+		font-size: 26px;
+		font-size: 2.6rem;
+	}
+	.h1_fz {
+		font-size: 36px;
+		font-size: 3.6rem;
+	}
+    .sml_fz{
+        font-size: 26px;
+        font-size: 2.6rem;
+    }
+	.huge_fz {
+		font-size: 72px;
+		font-size: 7.2rem;
+	}
+	.icon32 {
+		width: 32px;
+		height: 32px;
+	}
+	.icon32_s {
+		width: 24px;
+		height: 24px;
+	}
+	.icon48 {
+		width: 48px;
+		height: 48px;
+	}
+	.f_fix {
+		padding-bottom: 120px;
+	}
+	.tip_font{
+		top: 35px;
+	}
+	.tip_l{
+		margin-left: 2%;
+	}
+	.tip_bg{
+		height: 1152px;
+	}
+	.tip_content{
+		/*padding-top: 252px;*/
+	}
+}
+
+

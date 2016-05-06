@@ -1,0 +1,125 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="x5-orientation" content="portrait">
+<meta name="screen-orientation" content="portrait">
+<title>商城优惠券大派送 - 速普商城</title>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+<link href="./css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="./css/ac.css" rel="stylesheet" type="text/css">
+
+
+<link href="./js/mobile/need/layer.css" rel="stylesheet" type="text/css">
+<script src="./js/mobile/layer.m.js"></script>
+
+<script>
+   $(function(){
+         // layer.open({
+          // content: '<div class="tip dialog1"><img src="img/img10.png" alt=""/><div> 恭喜您，优惠券领取成功！</div><span>快去个人中心“我的优惠券”查收吧！</span></div>',
+          
+          // content: '<div class="tip dialog1"><img src="img/img11.png" alt=""/><div> 来晚一步，优惠券被抢光！</div><span>快去领取其他优惠券吧！</span></div>',
+          
+          // content: '<div class="tip dialog1"><img src="img/img11.png" alt=""/><div>对不起，领取失败！</div><span>检查网络，保持网络通畅，稍后点击领取</span></div>',
+          // btn:['确认']
+     //       btn: ['确认', '取消'],
+		   //  shadeClose: false,
+		   //  yes: function(){
+		   //      layer.open({content: '你点了确认', time: 1});
+		   //  }, no: function(){
+		   //      layer.open({content: '你选择了取消', time: 1});
+		   //  }
+     //    });
+   		// $('.layermbtn').addClass('log');
+
+       
+   })
+</script>
+
+
+<!-- <script src="js/modernizr.js"></script>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> -->
+</head>
+
+<body>
+<div class="gridContainer clear">
+<!--头部漂浮-->
+<include file="./SupuyApp/Home/View/top.html" />
+<!-- top -->
+<div> <img src="img/img01.png" /> </div>
+
+    <!-- 优惠券1 组合-->
+<div class="tip_bg">
+    <div class="tip_padding">
+        <!-- 优惠券名称 -->
+        <div class="tip_left">
+            <div class="h1_fz">组合券</div>
+            <span></span>
+        </div>
+        <!-- 优惠券内容 -->
+        <div class="tip_center">
+            <span class="til_fz">全场无限制使用全场无限制使用</span>
+        </div>
+        <!-- 按钮 -->
+        <div class="tip_bottom">
+            <a href=""><img src="img/u.png" alt="" width="100%;"></a>
+        </div>
+    </div>
+</div>
+
+  <!-- 优惠券2 满减 -->
+<div class="tip_bg">
+    <div class="tip_padding">
+        <!-- 优惠券名称 -->
+        <div class="tip_left">
+            <div class="huge_fz">120</div>
+            <span class="til_fz" style="dispaly:block;margin-top:-10px;">满减券</span>
+        </div>
+        <!-- 优惠券内容 -->
+        <div class="tip_center">
+            <span class="til_fz">全场无限制使用</span>
+        </div>
+        <!-- 按钮 -->
+        <div class="tip_bottom">
+            <a href=""><img src="img/sefer.png" alt="" width="100%;"></a>
+        </div>
+    </div>
+</div>
+ <!--  已抢完-->
+<div class="tip_bg over">
+    <div class="tip_padding">
+        <!-- 优惠券名称 -->
+        <div class="tip_left">
+            <div class="huge_fz">120</div>
+            <span class="til_fz" style="dispaly:block;margin-top:-10px;">满减券</span>
+        </div>
+        <!-- 优惠券内容 -->
+        <div class="tip_center">
+            <span class="til_fz">全场无限制使用</span>
+        </div>
+        <!-- 按钮 -->
+        <div class="tip_bottom">
+            <a href=""><img src="img/serw.png" alt="" width="100%;"></a>
+        </div>
+    </div>
+</div>
+<!-- bottom -->
+<div class="tip">
+    <img src="img/bottom.jpg" alt="">
+</div>
+  <!--底部-->
+    <eq name="type" value="wap"><include file="./SupuyApp/Home/View/bottom.html" /></eq>
+</div>
+
+<eq name="type" value="wap"><include file="./SupuyApp/Home/View/menu.html" /></eq>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="x5-orientation" content="portrait">
+<meta name="screen-orientation" content="portrait">
+<title>好友邀请页面 - 速普母婴</title>
+
+
+<link href="./css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="./css/ac.css" rel="stylesheet" type="text/css">
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    $(function(){
+        var height = $(window).height();
+        $('.gridContainer').css('min-height',height);
+    })
+
+</script>
+</head>
+
+<body>
+<div class="gridContainer clear">
+<!--头部漂浮-->
+<include file="./SupuyApp/Home/View/top.html" />
+
+
+<!-- 内容start -->
+    <div><img src="./img/hyyq01.jpg" /></div>
+
+    <div class="tip_content">
+        <span class="til_fz">注册速普立享<span class="pink">188元</span>现金大礼包！<br>使用下面邀请码还能获得8元红包哦!</span>
+        <div class="tip_code">
+        <div class="h1_fz">SDING34</div>
+        </div>
+        <span  class="sml_fz">邀请码兑换途径：<br>
+APP首页-邀请好友-邀请码兑换<br>
+注册24小时内兑换有效哦！</span>
+    </div>
+
+    <div><a href=""><img src="./img/hyyq03.jpg" /></a></div>
+
+
+
+<!--底部-->
+
+    <eq name="type" value="wap"><include file="./SupuyApp/Home/View/bottom.html" /></eq>
+</div>
+
+<eq name="type" value="wap"><include file="./SupuyApp/Home/View/menu.html" /></eq>
+</body>
+</html>

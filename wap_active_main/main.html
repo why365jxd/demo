@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>活动页部分元素效果</title>
+    <link href="css/m.base.css" rel="stylesheet" type="text/css">
+    <link href="css/idangerous.swiper.css" rel="stylesheet" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="js/idangerous.swiper.min.js"></script>
+</head>
+<body>
+<div id="banner1" style="height: 20rem; background-color:red"></div>
+
+<!--滑动导航-->
+<style>
+    .module01 .swiper-container{
+        /*position:fixed;*/
+        background:rgba(255,255,255,0.85);
+        text-align:center;
+        width: 100%;
+        height: 2.6rem;
+        top: 0;
+        z-index: 10;
+    }
+    .module01 .swiper-container .swiper-slide{
+        line-height: 2.6rem;
+    }
+    .module01 .swiper-container .swiper-slide a{
+        color:#333;
+    }
+    .module01 .swiper-container .swiper-slide a:active{
+        color:#ff0000;
+    }
+    .module01 .swiper-container .current{
+        background-image: url(img/topnav2_22x30.png);
+        background-repeat: no-repeat;
+        background-position: .1rem .8rem;
+        background-size: auto 1rem;
+    }
+    .module01 .swiper-container .current a{
+        color: #e5004b;
+    }
+
+    .module01 .swiper-container.scroll{
+        position: fixed;
+    }
+</style>
+<div class="module01">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><a href="#f0">特色推荐</a></div>
+            <div class="swiper-slide"><a href="#f8">奶粉尿裤</a></div>
+            <div class="swiper-slide"><a href="#f9">母婴用品</a></div>
+            <div class="swiper-slide"><a href="#f11">婴童服饰</a></div>
+            <div class="swiper-slide"><a href="#f13">居家美妆</a></div>
+            <div class="swiper-slide"><a href="#f15">成人服饰</a></div>
+            <div class="swiper-slide"><a href="#f17">红人好货</a></div>
+            <div class="swiper-slide"><a href="#f19">全球购</a></div>
+            <div class="swiper-slide"><a href="#f21">爆款尖货</a></div>
+        </div>
+    </div>
+</div>
+<script>
+    var swiper = new Swiper('.module01 .swiper-container', {   //横向拖动jq
+        pagination: '.module01 .swiper-pagination',
+        slidesPerView: 4,
+        paginationClickable: true,
+        spaceBetween: 0
+    });
+</script>
+<script>
+    $(".swiper-slide").click(function(){   //导航点击事件
+        $(this).addClass("current");
+        $(this).siblings().removeClass("current");
+    });
+</script>
+<script>
+    $(window).scroll(function() {  //到位置后跟随滚动
+        var TY = $('#banner1').outerHeight();
+           // alert(TY);
+        var isScroll = $(this).scrollTop() >= TY;
+        if (isScroll) {
+            $('.module01 .swiper-container').addClass('scroll');
+        } else {
+            $('.module01 .swiper-container').removeClass('scroll');
+        }
+    });
+</script>
+
+<!--滑动导航end-->
+
+
+<div id="f0" style="height: 10rem; background-color:#e8e8e8;">
+
+<!--倒计时-->
+    <style>
+        .time-item strong {
+            background:#C71C60;
+            color:#fff;
+            line-height:49px;
+            font-size:26px;
+            font-family:Arial;
+            padding:0 10px;
+            margin-right:10px;
+            border-radius:5px;
+            box-shadow:1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .item-title .unit {
+            background:none;
+            line-height:49px;
+            font-size:24px;
+            padding:0 10px;
+            float:left;
+        }
+    </style>
+    <div class="time-item">
+        <strong id="day_show">0天</strong>
+        <strong id="hour_show">0时</strong>
+        <strong id="minute_show">0分</strong>
+        <strong id="second_show">0秒</strong>
+    </div>
+    <script type="text/javascript">
+        var time_end = new Date('2016/04/18 00:00:00').getTime(); //设定目标时间
+//        alert(time_end);
+//        var time_now = new Date().getTime(); //设定当前时间 $.now()也行
+//        alert(time_now);
+        var intDiff = parseInt((time_end - $.now()) / 1000); //倒计时总秒数量(设置到期日换算总秒数)
+//        alert(intDiff);
+        function timer(intDiff){
+            window.setInterval(function(){
+                var day=0,
+                    hour=0,
+                    minute=0,
+                    second=0;//时间默认值
+                if(intDiff > 0){
+                    day = Math.floor(intDiff / (60 * 60 * 24));
+                    hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                    minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                    second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+                }
+                if (minute <= 9) minute = '0' + minute;
+                if (second <= 9) second = '0' + second;
+                $('#day_show').html(day+"天");
+                $('#hour_show').html('<s id="h"></s>'+hour+'时');
+                $('#minute_show').html('<s></s>'+minute+'分');
+                $('#second_show').html('<s></s>'+second+'秒');
+                intDiff--;
+            }, 1000);
+        }
+        $(function(){
+            timer(intDiff);
+        });
+    </script>
+
+
+
+</div>
+
+<!-- tab切换代码部分begin -->
+<link href="css/wrap_tab.css" rel="stylesheet" type="text/css">
+<div class="module02">
+<div class="wrap">
+    <div class="tabs">
+        <a href="#" class="active">11:00-12:00<br>正在抢购</a>
+        <a href="#">15:00-16:00<br>即将开始</a>
+        <a href="#">21:00-22:00<br>即将开始</a>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="sl-content">
+                    tab内容一<br>
+                    tab内容一
+                </div>
+
+            </div>
+            <div class="swiper-slide">
+                <div class="sl-content">
+                    tab内容二
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="sl-content">
+                    tab内容三<br>
+                    tab内容三<br>
+                    tab内容三
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    var tabsSwiper = new Swiper('.module02 .swiper-container',{
+        speed:500,
+        onSwiperCreated: function () {  //初始 tab高度自适应
+            var H = $(".sl-content").eq(0).height();
+            $(".swiper-wrapper").css('height', H + 'px');
+            $(".swiper-slide").css('height', H + 'px');
+        },
+        onSlideChangeStart: function(){
+            var H = $(".sl-content").eq(tabsSwiper.activeIndex).height(); //开始 tab高度自适应
+            $(".tabs .active").removeClass('active');
+            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+            $(".swiper-wrapper").css('height', H + 'px');
+            $(".swiper-slide").css('height', H + 'px');
+        }
+    });
+
+    $(".tabs a").on('touchstart mousedown',function(e){
+        e.preventDefault()
+        $(".tabs .active").removeClass('active');
+        $(this).addClass('active');
+        tabsSwiper.swipeTo($(this).index());
+    });
+
+    $(".tabs a").click(function(e){
+        e.preventDefault();
+    });
+</script>
+<!-- tab切换代码部分end -->
+
+
+
+<div id="f8" style="height: 10rem; background-color:#c6c6c6"></div>
+<div id="f9" style="height: 10rem; background-color:#aaaaaa"></div>
+<div id="f11" style="height: 10rem; background-color: #C3C3C3"></div>
+<div id="f13" style="height: 10rem; background-color: #CCCCCC"></div>
+<div id="f15" style="height: 10rem; background-color: #DDDDDD"></div>
+<div id="f17" style="height: 10rem; background-color: #eeeeee"></div>
+<div id="f19" style="height: 10rem; background-color: #E0E0E0"></div>
+<div id="f21" style="height: 10rem; background-color: #D2D2D2"></div>
+
+
+<!--返回顶部-->
+<style>
+    .active_top{
+        position: fixed; bottom: 50px; right: 10px; width: 42px; height: 42px; z-index: 10001; display: none;
+    }
+    .active_top img{
+        width: 100%;
+    }
+    .breath {
+        -webkit-animation: xfys-breath .7s linear infinite alternate both;
+        animation: xfys-breath .7s linear infinite alternate both;
+    }
+    @-webkit-keyframes xfys-breath {
+        0% {
+            -webkit-transform: translate3d(0, 50%, 0) scale(.95)
+        }
+        100% {
+            -webkit-transform: translate3d(0, 50%, 0) scale(1.05)
+        }
+    }
+    @keyframes xfys-breath {
+        0% {
+            transform: translate3d(0, 50%, 0) scale(.95)
+        }
+        100% {
+            transform: translate3d(0, 50%, 0) scale(1.05)
+        }
+    }
+</style>
+<div class="active_top breath">
+    <img src="img/top.png">
+</div>
+<script type="text/javascript">
+    $(function(){
+        $(window).scroll(function() {
+            if($(window).scrollTop() >= 100){ //向下滚动像素大于这个值时，即出现~
+                $('.active_top').fadeIn(300); //淡入的时间，越小出现的越快~
+            }else{
+                $('.active_top').fadeOut(300); //淡出的时间，越小消失的越快~
+            }
+        });
+        $('.active_top').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);}); //动画停留时间，越小消失的越快~
+    });
+</script>
+<!--返回顶部end-->
+</body>
+</html>

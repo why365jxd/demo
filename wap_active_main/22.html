@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=gb2312>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>触屏左右滑动tab</title>
+    <style type="text/css">
+        /*public*/
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei";
+            font-size: 14px;
+            color: #333;
+            background: #000;
+        }
+
+        img {
+            vertical-align: top;
+            border: 0;
+            display: block;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            min-width: 320px;
+            max-width: 640px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        /*swiper.css*/
+        .swiper-container {
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+            z-index: 1
+        }
+
+        .swiper-wrapper {
+            position: relative;
+            width: 100%;
+            -webkit-transition-property: -webkit-transform, left, top;
+            -webkit-transition-duration: 0;
+            -webkit-transform: translate3d(0, 0, 0);
+            -webkit-transition-timing-function: ease;
+            -moz-transition-property: -moz-transform, left, top;
+            -moz-transition-duration: 0;
+            -moz-transform: translate3d(0, 0, 0);
+            -moz-transition-timing-function: ease;
+            -o-transition-property: -o-transform, left, top;
+            -o-transition-duration: 0;
+            -o-transform: translate3d(0, 0, 0);
+            -o-transition-timing-function: ease;
+            -o-transform: translate(0, 0);
+            -ms-transition-property: -ms-transform, left, top;
+            -ms-transition-duration: 0;
+            -ms-transform: translate3d(0, 0, 0);
+            -ms-transition-timing-function: ease;
+            transition-property: transform, left, top;
+            transition-duration: 0;
+            transform: translate3d(0, 0, 0);
+            transition-timing-function: ease;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box
+        }
+
+        .swiper-free-mode > .swiper-wrapper {
+            -webkit-transition-timing-function: ease-out;
+            -moz-transition-timing-function: ease-out;
+            -ms-transition-timing-function: ease-out;
+            -o-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+            margin: 0 auto
+        }
+
+        .swiper-slide {
+            float: left;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box
+        }
+
+        .swiper-wp8-horizontal {
+            -ms-touch-action: pan-y
+        }
+
+        .swiper-wp8-vertical {
+            -ms-touch-action: pan-x
+        }
+
+        .wrap {
+            margin: 100px auto 0 auto;
+        }
+
+        .tabs {
+            background: url(http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/bg2.jpg);
+            background-size: 100%;
+            overflow: hidden;
+            text-align: center
+        }
+
+        .tabs a {
+            display: inline-block;
+            width: 46%;
+            background: #033a6d;
+        }
+
+        .tabs a.active {
+            color: #fff;
+            background: #03cbfe;
+        }
+
+        .swiper-container {
+            border-radius: 0 0 5px 5px;
+            width: 100%;
+            border-top: 0;
+        }
+
+        .swiper-slide {
+            width: 100%;
+            background: none;
+            color: #fff;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="tabs">
+        <a href="#" hidefocus="true" class="active">
+            <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/tab1.png"
+                 width="100%"></a>
+        <a href="#" hidefocus="true">
+            <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/tab2.png"
+                 width="100%"></a>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="content-slide" style="background-color: red">
+                    <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/1-1.jpg"
+                         width="100%">
+                    <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/1-2.jpg"
+                         width="100%">
+                    <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/1-3.jpg"
+                         width="100%">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="content-slide" style="background-color: blue">
+                    <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/2-1.jpg"
+                         width="100%">
+                    <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/2-2.jpg"
+                         width="100%">
+                    <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/2-3.jpg"
+                         width="100%">
+                    <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/2-4.jpg"
+                         width="100%">
+                    <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/2-5.jpg"
+                         width="100%">
+                    <img src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/images/2-6.jpg"
+                         width="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+4545345345
+<script type="text/javascript"
+        src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/files/jquery-1.10.1.min.js"></script>
+<script type="text/javascript"
+        src="http://imgd2.soufunimg.com/2015/05/06/chengdu/gebz/3e3fc71e76394f90b34e5399ebdaebe5/files/idangerous.swiper.min.js"></script>
+<script type="text/javascript">
+    var tabsSwiper = new Swiper('.swiper-container', {
+        speed: 500,
+        onSwiperCreated: function () {
+            var H = $(".content-slide").eq(0).height();
+            $(".swiper-wrapper").css('height', H + 'px');
+            $(".swiper-slide").css('height', H + 'px');
+        },
+        onSlideChangeStart: function () {
+            var H = $(".content-slide").eq(tabsSwiper.activeIndex).height();
+            $(".tabs .active").removeClass('active');
+            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
+            $(".swiper-slide").css('height', H + 'px');
+            $(".swiper-wrapper").css('height', H + 'px');
+        },
+    });
+    $(".tabs a").on('touchstart mousedown', function (e) {
+        var index = $(this).index();
+        e.preventDefault()
+        tabsSwiper.swipeTo(index);
+        $(".tabs .active").removeClass('active');
+        $(this).addClass('active');
+    });
+    $(".tabs a").click(function (e) {
+        e.preventDefault();
+    });
+</script>
+</body>
+</html>

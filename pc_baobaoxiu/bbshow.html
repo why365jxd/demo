@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>宝宝秀</title>
+    <link rel="stylesheet" type="text/css" href="http://www.supumall.com/mall/Home/View/Public/Css/reset.css">
+    <link rel="stylesheet" type="text/css" href="http://www.supumall.com/mall/Home/View/Public/Css/public.css">
+    <link href="css/bbshow.css" rel="stylesheet" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/superslide.2.1.js"></script>
+</head>
+
+<body>
+
+<!--fullSlide-->
+<div class="fullSlide">
+    <div class="bd">
+        <ul>
+            <li><a href="#"><img src="img/ad_2.jpg"></a>
+                <div class="flex_content">
+                    <h1>正在报名</h1><h1>正在投票</h1><span> 已报名 <font style="color: #e5004b;font-size: 15px;">  2542 </font> 人</span> <span>查看详情> </span>
+                </div></li>
+            <li><a href="#"><img src="img/ad_1.jpg"></a>
+                <div class="flex_content">
+                    <h1>正在报名</h1><h1>正在投票</h1><span> 已报名 <font style="color: #e5004b;font-size: 15px;">  2542 </font> 人</span> <span>查看详情> </span>
+                </div></li>
+            <li><a href="#"><img src="img/ad_3.jpg"></a>
+                <div class="flex_content">
+                    <h1>正在报名</h1><h1>正在投票</h1><span> 已报名 <font style="color: #e5004b;font-size: 15px;">  2542 </font> 人</span> <span>查看详情> </span>
+                </div></li>
+
+        </ul>
+    </div>
+    <div class="hd"><ul></ul></div>
+    <span class="prev"></span>
+    <span class="next"></span>
+</div>
+
+<script type="text/javascript">
+    $(".fullSlide").hover(function(){
+                $(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
+            },
+            function(){
+                $(this).find(".prev,.next").fadeOut()
+            });
+    $(".fullSlide").slide({
+        titCell: ".hd ul",
+        mainCell: ".bd ul",
+        effect: "fold",
+        autoPlay: true,
+        autoPage: true,
+        trigger: "click",
+        startFun: function(i) {
+            var curLi = jQuery(".fullSlide .bd li").eq(i);
+            if ( !! curLi.attr("_src")) {
+                curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
+            }
+        }
+    });
+</script>
+<!--fullSlide end-->
+
+<div class="wrap_1200">
+    <div class="bbs_areabox">
+        <i class="bbs_before_ico fl"></i><div class="bbs_title fl">往期回顾</div><div class="bbs_title_sml fl">看看您错过的秀场</div>
+        <div class="fr" style="margin-right: 20px;">
+            共&nbsp;<span style="color: #dc514e;font-weight: bold;" >519</span>&nbsp;个活动
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="bbs_year_areabox"><div class="bbs_year">2016</div></div>
+    <div class="bbs_list">
+        <ul>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+
+    <div class="bbs_year_areabox"><div class="bbs_year">2015</div></div>
+    <div class="bbs_list">
+        <ul>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+
+
+
+
+</div>
+</body>
+</html>

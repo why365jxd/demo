@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>宝宝秀</title>
+    <link rel="stylesheet" type="text/css" href="http://www.supumall.com/mall/Home/View/Public/Css/reset.css">
+    <link rel="stylesheet" type="text/css" href="http://www.supumall.com/mall/Home/View/Public/Css/public.css">
+    <link rel="stylesheet" type="text/css" href="http://www.supumall.com/mall/Home/View/Public/Css/new_styles.css">
+    <link href="css/bbshow.css" rel="stylesheet" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/superslide.2.1.js"></script>
+    <SCRIPT type="text/javascript" src="js/jquery.DatePicker.min.js"></SCRIPT>
+    <script>
+        $(document).ready(function(){
+            $('#picker_1').datePicker({followOffset : [0, 24]});
+            $('#picker_2').datePicker({followOffset : [0, 24]});
+        });
+    </script>
+
+
+    <style>
+        .page_bgcolor{
+            background: #faf2ce;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page_bgcolor">
+
+<div class="imgc"><img src="img/ad_1.jpg"/></div>
+<div class="wrap_1200">
+    <!--宝宝秀tab切换-->
+    <div class="bbs_tab">
+        <ul class="tab_trigger">
+            <li data-index="0" class="item active">活动介绍</li>
+            <li data-index="1" class="item">我要报名</li>
+            <li data-index="2" class="item">我要投票</li>
+        </ul>
+        <div class="right_content fr">
+            <h1>正在报名</h1><h1>正在投票</h1><span> 已报名 <font style="color: #e5004b;font-size: 15px;">  2542 </font> 人</span>
+        </div>
+        <div class="clear"></div>
+
+        <div class="tab_content">
+            <div class="tab_content_item bbs_pad50  tab_content_selected">
+                <img name="" src="" width="1000" height="1000" alt="" />
+                <div class="clear"></div>
+            </div>
+            <div class="tab_content_item bbs_pad50">
+                <div class="bbs_signup_title">顽皮潮爸潮妈，让baby喜上眉梢 <span>(正在进行中...)</span> </div>
+                <div class="bbs_signup_line">填写报名信息</div>
+                <div class="bbs_signup_step">
+                    <div class="bbs_signup_step_title"><i class="bbs_signup_icon1 fl">1</i><span class="fl">上传照片</span></div>
+                    <div class="bbs_signup_cont">
+                        <div class="bbs_upload">+</div>
+                        <div class="bbs_upload">+</div>
+                        <div class="bbs_upload">+</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="bbs_signup_step">
+                    <div class="bbs_signup_step_title"><i class="bbs_signup_icon2 fl">1</i><span class="fl">妈妈资料</span></div>
+                    <div class="bbs_signup_cont">
+                        <div class="inp_area"><label>妈妈姓名：</label><input name="" type="text" /></div>
+                        <div class="inp_area"><label>妈妈生日：</label><input name="" type="text" id="picker_1" /></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="bbs_signup_step">
+                    <div class="bbs_signup_step_title"><i class="bbs_signup_icon3 fl">1</i><span class="fl">宝宝资料</span></div>
+                    <div class="bbs_signup_cont">
+                        <div class="inp_area"><label>宝宝姓名：</label><input name="" type="text" /></div>
+                        <div class="inp_area"><label>妈妈生日：</label><input name="" type="text"  id="picker_2"/></div>
+                        <div class="inp_area"><label>宝宝性别：</label><select name=""><option>男</option><option>女</option></select></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="bbs_signup_step">
+                    <div class="bbs_signup_step_title"><i class="bbs_signup_icon4 fl">1</i><span class="fl">寄语</span><span style="color: #888888;font-size: 12px;">（0/140字）</span></div>
+                    <div class="bbs_signup_cont">
+                        <textarea name="" cols="" placeholder="用最生动的语言，拉票吧！" rows="7"></textarea>
+
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="bbs_signup_step">
+                    <div class="bbs_signup_step_title"><i class="bbs_signup_icon5 fl">1</i><span class="fl">收货地址</span></div>
+                    <div class="bbs_signup_cont">
+                       地址代码
+
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="bbs_signup_line"></div>
+                <div class="bbs_signup_bot">提交报名信息</div>
+
+                <div class="clear"></div>
+            </div>
+            <div class="tab_content_item">
+                <div class="choose_box_bottom">
+                    <div style="width: 100%; padding-bottom: 20px;">
+                    <div class="fl">
+                        <div class="choose_title">排序：</div>
+                        <div class="choose_item" style="width:200px;">
+                            <input type="hidden" id="sort_type" sort_order="1">
+                            <a href="javascript:void(0)" class="btn choose_b_btn fl selected" id="sor_count" onclick="SortSaleCounts(this)">销量&nbsp;↓</a>
+                            <a href="javascript:void(0)" class="btn choose_b_btn fl" id="sor_price" onclick="SortPrices(this)">价格&nbsp;↓</a>
+                            <a href="javascript:void(0)" class="btn choose_b_btn fl" id="sor_discount" onclick="SortDiscounts(this)">好评&nbsp;↓</a>
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+                        <div class="choose_search fr">
+                            <input name="" placeholder="搜索编号/姓名" type="text"/><input type="submit" value="宝宝搜索" class="s_btn">
+                        </div>
+
+                    <div class="clear"></div>
+                    </div>
+
+                    <div class="bbs_show_list">
+                        <ul>
+                            <li><a href="#"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#" id="btn_show"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_female fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#" id="coup_show"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                            <li><a href="#"><div class="bbs_show_list_name fr">轩宝</div><i class="ico_male fr">icon</i><div class="bbs_show_list_num">0001号</div><img src="img/bb.jpg"/><div class="bbs_show_list_title">一不小心，霸气外露！一般人我不告诉特，其实爷今年只有俩岁……零俩月……嘻嘻”</div><div class="bbs_show_list_no">当前票数：<span>21574</span></div></a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+
+                    <!--弹框-->
+                    <script src="js/jquery.artwl.thickbox.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        $(function () {
+                            $.artwl_bind({ showbtnid: "btn_show", title: "为喜欢的宝宝投票", content: $("#pop_cont").html() });
+                            $.artwl_bind({ showbtnid: "coup_show", title: "速普投票有礼，恭喜您获得了", content: $("#pop_coup_cont").html() });
+
+                        });
+                    </script>
+                    <div id="pop_cont" style="display:none;">
+                    <div class="bbs_pop">
+                        <div class="bbs_pop_l">
+                            <!--图片切换-->
+                            <script type="text/javascript" src="js/lrtk.js"></script>
+                            <div class="focus">
+                                <ul class="rslides fimg">
+                                    <li><a href="" target="_blank"><img src="img/bb.jpg" alt="" /></a></li>
+                                    <li><a href="" target="_blank"><img src="img/bb2.jpg" alt="" /></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="bbs_pop_n1 fl">排名：1656</div>
+                            <div class="bbs_pop_n2 fl">总票数：<span>669988</span></div>
+                            <div class="bbs_pop_n3 fl"  id="coup_show">为TA投票</div>
+                        </div>
+
+                        <div class="bbs_pop_r">
+                            <div class="bbs_pop_w1">山东青岛    选手编号： 0004</div>
+                            <div class="bbs_pop_w2">宝宝姓名：瑞瑞<br>
+                                宝宝生日：2013-09-20</div>
+                            <div class="bbs_pop_w2">妈妈姓名：吴太华<br>
+                                妈妈生日：1984-11-02</div>
+                            <div class="bbs_pop_w1">寄语：</div>
+                            <div class="bbs_pop_w3">宝宝最爱吃的抹茶甜筒表情萌萌哒！宝宝最爱吃的抹茶甜筒，表情萌萌哒！宝宝最爱吃的抹茶甜筒，表情萌萌哒！宝宝最爱吃的抹茶甜筒表情萌萌哒！宝宝最爱吃的抹茶甜筒，表情萌萌哒！宝宝最爱吃的抹茶甜筒，表情萌萌哒！宝宝最爱吃的抹茶甜筒，表情萌萌哒！宝宝最爱吃的抹茶甜筒，表情萌萌哒！宝宝最爱。</div>
+                        </div>
+                    </div>
+                    </div>
+                    <div id="pop_coup_cont" style="display:none;"><div>fsfsafasfasdfsadf</div></div>
+
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+   <script>
+       $(document).ready(function(){
+            //宝宝秀tab切换
+           $(".bbs_tab>.tab_trigger>.item").click(function(){
+               var i = $(this).attr("data-index");
+               $(this).siblings().removeClass("active");
+               $(this).addClass("active");
+               $(this).parent().parent().find(".tab_content>.tab_content_item").removeClass("tab_content_selected");
+               $(this).parent().parent().find(".tab_content>.tab_content_item").eq(i).addClass("tab_content_selected");
+           });
+       });
+   </script>
+    <!--宝宝秀tab切换-->
+
+    <div class="bbs_areabox">
+        <i class="bbs_before_ico fl"></i><div class="bbs_title fl">往期回顾</div><div class="bbs_title_sml fl">看看您错过的秀场</div>
+        <div class="fr" style="margin-right: 20px;">
+            <select>
+                <option>2016</option>
+                <option>2015</option>
+            </select>
+            共&nbsp;<span style="color: #dc514e;font-weight: bold;" >519</span>&nbsp;个活动
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="bbs_list">
+        <ul>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+            <li><a href="#"><img src="img/areabox.jpg"/><div class="bbs_list_title">顽皮潮爸潮妈，让baby喜上眉梢顽皮潮爸潮妈，让baby喜上眉梢</div><div class="bbs_list_num">1089人参加 </div><div class="bbs_list_date">2014-10-14</div></a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+
+
+
+
+</div>
+</div>
+</body>
+</html>

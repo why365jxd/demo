@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* 简单流媒体
+   注意: 流媒体要求您删除 HTML 中媒体的高度和宽度属性
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+
+img,
+object,
+embed,
+video {
+	max-width: 100%;
+}
+/* IE 6 不支持最大宽度，因此默认为 100% 宽度 */
+
+.ie6 img {
+	width: 100%;
+}
+
+
+/*头部固定*/
+.top_area{
+    position:fixed;top:0;left:0;width:100%;line-height:1.7rem;background:#608eb9;color:#000;text-align:center; width: 100%;height: 1.7rem;font-size: .6rem;
+}
+.top_area a{ margin: 0 .5rem}
+
+/*返回顶部*/
+.floatElement {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    width: 10%;
+}
+.floatElement img{
+    width: 100%;
+}
+.breath {
+    -webkit-animation: xfys-breath .7s linear infinite alternate both;
+    animation: xfys-breath .7s linear infinite alternate both;
+}
+@-webkit-keyframes xfys-breath {
+    0% {
+        -webkit-transform: translate3d(0, 50%, 0) scale(.95)
+    }
+    100% {
+        -webkit-transform: translate3d(0, 50%, 0) scale(1.05)
+    }
+}
+@keyframes xfys-breath {
+    0% {
+        transform: translate3d(0, 50%, 0) scale(.95)
+    }
+    100% {
+        transform: translate3d(0, 50%, 0) scale(1.05)
+    }
+}
+
+
