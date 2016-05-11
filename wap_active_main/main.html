@@ -236,7 +236,7 @@
 <!--返回顶部-->
 <style>
     .active_top{
-        position: fixed; bottom: 50px; right: 10px; width: 42px; height: 42px; z-index: 10001; display: none;
+        position: fixed; bottom: 100px; right: 10px; width: 42px; height: 42px; z-index: 10001; display: none;
     }
     .active_top img{
         width: 100%;
@@ -278,5 +278,39 @@
     });
 </script>
 <!--返回顶部end-->
+
+<!--居屏幕底链接-->
+<style>
+    .floor_link .fl_area{
+        position: fixed;
+        background: rgba(255,255,255,0.85);
+        text-align: center;
+        width: 100%;
+        height: 2.6rem;
+        line-height: 2.6rem;
+        bottom: 0;
+        z-index: 10;
+    }
+    .floor_link .fl_area li{
+        float: left;
+        width: 33%;
+    }
+    .floor_link .fl_area li a{
+        display: inherit;
+        color: #551A8B;
+    }
+    .floor_link .fl_area li a:hover{
+        background: rgba(255,255,255,1);
+    }
+</style>
+    <div class="floor_link">
+        <div class="fl_area">
+            <li><a href="#f0">特色推荐</a></li>
+            <li><a href="#f0">特色推荐</a></li>
+            <li><a href="#f0">特色推荐</a></li>
+        </div>
+    </div>
+<!--居屏幕底链接end-->
+
 </body>
 </html>
