@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/m.base000.css" type="text/css">
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1920px;
+            height: 1080px;
+            box-shadow: inset 0 0 0 10px #bdd28f;
+            /*background: url("img/bg.jpg") no-repeat 100%;*/
+            background-color: #303030;
+            font-family: Microsoft Yahei;
+        }
+
+        .p10 {
+            padding: 10px;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .head {
+            width: 100%;
+            /*border-bottom: 10px solid #ceb070;*/
+            display: inline-table;
+        }
+
+        .logo {
+            margin: 10px;
+        }
+
+        .weather {
+            margin: 20px 60px 10px 10px;
+            width: 230px;
+            /*background-color: #ff0000;*/
+            font-size: 26px;
+            color: #ffffe5;
+            overflow: hidden;
+        }
+
+        .datenow {
+            margin: 20px 60px 10px 100px;
+            /*background-color: #f374a1;*/
+            text-align: center;
+            line-height: 42px;
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .datenow h1 {
+            font-size: 26px;
+            list-style: none;
+            margin: 0;
+            color: #ffffe5;
+        }
+
+        .datenow h2 {
+            font-size: 36px;
+            letter-spacing: 1px;
+            color: #ceb070;
+            margin: 0;
+        }
+
+        .datenow h3 {
+            font-size: 20px;
+            list-style: none;
+            margin: 0;
+            color: #ffffe5;
+        }
+
+        .main {
+            margin: 20px;
+            display: inline-table;
+        }
+
+        .marq {
+            color: #00e1ff;
+            font-size: 36px;
+            line-height: 56px;;
+            letter-spacing: 1px;
+            overflow: hidden;
+            width: 700px;
+        }
+
+        .table_style {
+            width: 700px;
+            text-align: center;
+            font-size: 22px;
+
+            table-layout: fixed;
+            empty-cells: show;
+            border-collapse: collapse;
+            border: 2px solid #ceb070;
+
+        }
+
+        .table_style th {
+            color: #ceb070;
+            padding: 4px;
+            border: 2px solid #ceb070;
+        }
+
+        .table_style th span, td span {
+            font-size: 16px;
+        }
+
+        .table_style td {
+            color: #ffffe5;
+            padding: 4px;
+            border: 2px solid #ceb070;
+        }
+
+    </style>
+</head>
+<body>
+<div class="p10">
+    <div class="head">
+        <div class="logo fl"><img src="img/logo.png" width="145" height="153"></div>
+        <div class="datenow fr">
+            <h1>2016年5月5日</h1>
+
+            <h2>14:40:48</h2>
+
+            <h3>丙申猴年四月初八</h3>
+        </div>
+        <div class="weather fr">
+            <div><img src="img/sw_001.png"></div>
+            <div>22 ~ 14℃</div>
+            <div>5月7日 晴转多云</div>
+        </div>
+        <div class="weather fr">
+            <div><img src="img/sw_001.png"></div>
+            <div>22 ~ 14℃</div>
+            <div>5月6日 晴转多云</div>
+        </div>
+        <div class="weather fr">
+            <div><img src="img/sw_001.png"></div>
+            <div>22 ~ 14℃</div>
+            <div>5月5日 晴转多云</div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="main">
+        <div class="marq">
+            <marquee border="0" align="middle" scrolldelay="120">
+                欢迎您的光临！酒店装修设计独具匠心，浪漫地中海风格与海南独特的休闲文化元素有机融合，典雅高贵之中处处洋溢浪漫的情愫。
+            </marquee>
+        </div>
+        <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_style">
+                <tr>
+                    <th>房间类别<br>
+                        <span>Room Type</span>
+                    </th>
+                    <th>挂牌价<br>
+                        <span>Market Price</span>
+                    </th>
+                    <th>执行价<br>
+                        <span>Execute Price</span>
+                    </th>
+                    <th>会员价<br>
+                        <span>Member Price</span>
+                    </th>
+                    <th>铂金会员价<br>
+                        <span>Bojin Price</span>
+                    </th>
+                </tr>
+                <tr>
+                    <td>意大利<br>
+                        <span>Italy Type</span>
+                    </td>
+                    <td>854</td>
+                    <td>545</td>
+                    <td>864</td>
+                    <td>584</td>
+                </tr>
+                <tr>
+                    <td>新中式<br>
+                        <span>Chinese Type</span>
+                    </td>
+                    <td>895</td>
+                    <td>898</td>
+                    <td>658</td>
+                    <td>689</td>
+                </tr>
+                <tr>
+                    <td>地中海<br>
+                        <span>Med</span>
+                    </td>
+                    <td>854</td>
+                    <td>545</td>
+                    <td>864</td>
+                    <td>584</td>
+                </tr>
+                <tr>
+                    <td>豪华大床<br>
+                        <span>Single</span>
+                    </td>
+                    <td>895</td>
+                    <td>898</td>
+                    <td>658</td>
+                    <td>689</td>
+                </tr>
+                <tr>
+                    <td>豪华标间<br>
+                        <span>Double</span>
+                    </td>
+                    <td>854</td>
+                    <td>545</td>
+                    <td>864</td>
+                    <td>584</td>
+                </tr>
+                    <td>意大利<br>
+                        <span>Italy Type</span>
+                    </td>
+                    <td>854</td>
+                    <td>545</td>
+                    <td>864</td>
+                    <td>584</td>
+                </tr>
+                <tr>
+                    <td>新中式<br>
+                        <span>Chinese Type</span>
+                    </td>
+                    <td>895</td>
+                    <td>898</td>
+                    <td>658</td>
+                    <td>689</td>
+                </tr>
+                <tr>
+                    <td>地中海<br>
+                        <span>Med</span>
+                    </td>
+                    <td>854</td>
+                    <td>545</td>
+                    <td>864</td>
+                    <td>584</td>
+                </tr>
+                <tr>
+                    <td>豪华大床<br>
+                        <span>Single</span>
+                    </td>
+                    <td>895</td>
+                    <td>898</td>
+                    <td>658</td>
+                    <td>689</td>
+                </tr>
+                <tr>
+                    <td>豪华标间<br>
+                        <span>Double</span>
+                    </td>
+                    <td>854</td>
+                    <td>545</td>
+                    <td>864</td>
+                    <td>584</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
