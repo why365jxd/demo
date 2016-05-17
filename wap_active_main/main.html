@@ -121,7 +121,7 @@
         <strong id="second_show">0秒</strong>
     </div>
     <script type="text/javascript">
-        var time_end = new Date('2016/04/18 00:00:00').getTime(); //设定目标时间
+        var time_end = new Date('2016/09/18 00:00:00').getTime(); //设定目标时间
 //        alert(time_end);
 //        var time_now = new Date().getTime(); //设定当前时间 $.now()也行
 //        alert(time_now);
@@ -192,36 +192,97 @@
 </div>
 </div>
 <script>
-    var tabsSwiper = new Swiper('.module02 .swiper-container',{
+    var tabsSwiper2 = new Swiper('.module02 .swiper-container',{
         speed:500,
         onSwiperCreated: function () {  //初始 tab高度自适应
             var H = $(".sl-content").eq(0).height();
-            $(".swiper-wrapper").css('height', H + 'px');
-            $(".swiper-slide").css('height', H + 'px');
+            $(".module02 .swiper-wrapper").css('height', H + 'px');
+            $(".module02 .swiper-slide").css('height', H + 'px');
         },
         onSlideChangeStart: function(){
-            var H = $(".sl-content").eq(tabsSwiper.activeIndex).height(); //开始 tab高度自适应
-            $(".tabs .active").removeClass('active');
-            $(".tabs a").eq(tabsSwiper.activeIndex).addClass('active');
-            $(".swiper-wrapper").css('height', H + 'px');
-            $(".swiper-slide").css('height', H + 'px');
+            var H = $(".sl-content").eq(tabsSwiper2.activeIndex).height(); //开始 tab高度自适应
+            $(".module02 .tabs .active").removeClass('active');
+            $(".module02 .tabs a").eq(tabsSwiper2.activeIndex).addClass('active');
+            $(".module02 .swiper-wrapper").css('height', H + 'px');
+            $(".module02 .swiper-slide").css('height', H + 'px');
         }
     });
 
-    $(".tabs a").on('touchstart mousedown',function(e){
+    $(".module02 .tabs a").on('touchstart mousedown',function(e){
         e.preventDefault()
-        $(".tabs .active").removeClass('active');
+        $(".module02 .tabs .active").removeClass('active');
         $(this).addClass('active');
-        tabsSwiper.swipeTo($(this).index());
+        tabsSwiper2.swipeTo($(this).index());
     });
 
-    $(".tabs a").click(function(e){
+    $(".module02 .tabs a").click(function(e){
         e.preventDefault();
     });
 </script>
 <!-- tab切换代码部分end -->
 
 
+<!-- tab并列切换代码部分begin -->
+<div class="module03" style="margin-top: 20px">
+    <div class="wrap">
+        <div class="tabs">
+            <a href="#" class="active">11:00-12:00<br>正在抢购</a>
+            <a href="#">15:00-16:00<br>即将开始</a>
+            <a href="#">21:00-22:00<br>即将开始</a>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="sl-content">
+                        tab内容一<br>
+                        tab内容一
+                    </div>
+
+                </div>
+                <div class="swiper-slide">
+                    <div class="sl-content">
+                        tab内容二
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="sl-content">
+                        tab内容三<br>
+                        tab内容三<br>
+                        tab内容三
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var tabsSwiper3 = new Swiper('.module03 .swiper-container',{
+        speed:500,
+        onSwiperCreated: function () {  //初始 tab高度自适应
+            var H = $(".sl-content").eq(0).height();
+            $(".module03 .swiper-wrapper").css('height', H + 'px');
+            $(".module03 .swiper-slide").css('height', H + 'px');
+        },
+        onSlideChangeStart: function(){
+            var H = $(".sl-content").eq(tabsSwiper3.activeIndex).height(); //开始 tab高度自适应
+            $(".module03 .tabs .active").removeClass('active');
+            $(".module03 .tabs a").eq(tabsSwiper3.activeIndex).addClass('active');
+            $(".module03 .swiper-wrapper").css('height', H + 'px');
+            $(".module03 .swiper-slide").css('height', H + 'px');
+        }
+    });
+    $(".module03 .tabs a").on('touchstart mousedown',function(e){
+        e.preventDefault()
+        $(".module03 .tabs .active").removeClass('active');
+        $(this).addClass('active');
+        tabsSwiper3.swipeTo($(this).index());
+    });
+
+    $(".module03 .tabs a").click(function(e){
+        e.preventDefault();
+    });
+</script>
+<!-- tab并列切换代码部分end -->
 
 <div id="f8" style="height: 10rem; background-color:#c6c6c6"></div>
 <div id="f9" style="height: 10rem; background-color:#aaaaaa"></div>
@@ -305,9 +366,9 @@
 </style>
     <div class="floor_link">
         <div class="fl_area">
-            <li><a href="#f0">特色推荐</a></li>
-            <li><a href="#f0">特色推荐</a></li>
-            <li><a href="#f0">特色推荐</a></li>
+            <li><a href="#f8">特色推荐</a></li>
+            <li><a href="#f9">特色推荐</a></li>
+            <li><a href="#f11">特色推荐</a></li>
         </div>
     </div>
 <!--居屏幕底链接end-->

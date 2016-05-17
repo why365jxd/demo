@@ -1,0 +1,91 @@
+jClocksGMT格林威治标准时间模拟时钟插件
+
+可以调整时区的偏移值来显示相应地区的时间，还能够自动转换夏令时时间。
+
+它的特点还有：
+模拟时钟。
+电子时钟。
+可以显示日期。
+提供5种不同的时钟皮肤。
+可自定义时间格式。
+可自定义日期格式。
+可以基于格林威治标准时间进行时区偏移。
+可以自定义CSS样式。
+可以使用自己的时钟皮肤。
+
+
+该时钟插件的可用配置参数如下：
+title：所在时区的名称。默认为：'Greenwich, England'。
+offset：设置GMT偏移，例如：+5.5，-4，0等。默认为0。
+dst：设置为夏令时时间。默认为true。
+digital：是否显示为电子时钟。默认值为true。
+analog：是否显示为模拟时钟。默认值为true。
+timeformat：时间格式，默认值为：'hh:mm A'。
+date：是否显示日期。默认值为false。
+dateformat：日期格式。默认值为：'MM/DD/YYYY'。
+angleSec：秒针的开始角度。默认值为0。
+angleMin：分针的开始角度。默认值为0。
+angleHour：时针的开始角度。默认值为0。
+skin：时钟的皮肤。默认值为1。
+时区偏移值
+
+
+时区偏移值的使用方法是在offset参数之后指定相应的数值。例如中国北京的时区为东8区：GMT+8，则设置为offset:+8。
+偏移值	地区
+GMT-12	Eniwetok（埃尼威托克岛）
+GMT-11	Samoa（萨摩亚）
+GMT-10	Hawaii（夏威夷）
+GMT-9	Alaska（阿拉斯加）
+GMT-8	PST, Pacific US（太平洋标准时间）
+GMT-7	MST, Mountain US（美国芒廷时间）
+GMT-6	CST, Central US（美国中部时间）
+GMT-5	EST, Eastern US（美国东部时间）
+GMT-4	Atlantic, Canada（大西洋，加拿大）
+GMT-3	Brazilia, Buenos Aries（巴西利亚，布宜诺斯艾利斯）
+GMT-2	Mid-Atlantic（大西洋中部时间）
+GMT-1	Cape Verdes
+GMT 0	Greenwich Mean Time（格林威治标准时间）
+GMT+1	Berlin, Rome（柏林，罗马 ）
+GMT+2	Israel, Cairo（以色列，开罗）
+GMT+3	Moscow, Kuwait（莫斯科，科威特）
+GMT+4	Abu Dhabi, Muscat（阿布扎比【阿拉伯联合酋长国首都】，马斯喀特【阿曼首都】）
+GMT+5	Islamabad, Karachi（伊斯兰堡【巴基斯坦首都】， 卡拉奇）
+GMT+6	Almaty, Dhaka（阿拉木图，达卡【孟加拉国首都】）
+GMT+7	Bangkok, Jakarta（曼谷，雅加达）
+GMT+8	Hong Kong, Beijing（香港，北京）
+GMT+9	Tokyo, Osaka（东京，大阪）
+GMT+10	Sydney, Melbourne, Guam（悉尼、墨尔本、关岛）
+GMT+11	Magadan, Soloman Is（马加丹，所罗门群岛）
+GMT+12	Fiji, Wellington, Auckland（斐济，威灵顿【新西兰首都】，新西兰）
+
+更多的地区时区可以查看：http://www.timeanddate.com/time/zone/。使用当前的时区偏移来搜索地区，如果单签的时区为夏令时，偏移值要减1。
+时间格式
+
+格式	示例	描述
+HH	12	24小时格式的小时时间，2位数，不够时前面补0
+hh	06	12小时格式的小时时间，2位数，不够时前面补0
+H	15	24小时格式的小时时间，不带前导0
+h	7	12小时格式的小时时间，不带前导0
+mm	30	2位数的分钟时间，不够位数时前面补0
+m	25	1位数的分钟时间，不带前导0
+ss	35	2位数的秒时间，不够位数时前面补0
+s	20	1位数的秒时间，不带前导0
+a	pm	小写的am或pm
+A	PM	大小的AM或PM
+SSS	095	带前导0的毫秒数
+S	95	不带前导0的毫秒数
+日期格式
+
+格式	示例	描述
+YYYY	2016	4位数年份
+YY	16	2位数的年份
+MMMM	April	完整的月份名称
+MMM	Apr	简写的月份名称
+MM	04	带前导0的月份
+M	4	不带前导0的月份
+DDDD	Friday	一周中各天的完整名称
+DDD	Fri	一周中各天的简写名称
+DD	01	带前导0的天数
+D	1	不带前导0的天数
+
+jClocksGMT时钟插件的github地址为：https://github.com/mcmastermind/jClocksGMT

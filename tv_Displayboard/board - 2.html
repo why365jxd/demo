@@ -43,71 +43,69 @@
 
         .head {
             width: 100%;
-            border-bottom: 4px solid #ceb070;
+            /*border-bottom: 10px solid #ceb070;*/
             display: inline-table;
         }
 
         .logo {
-            margin:40px 40px 40px 60px;
+            margin: 10px;
         }
 
         .weather {
-            margin:60px 40px 0 40px;
-            width: 250px;
+            margin: 20px;
+            width: 230px;
             /*background-color: #ff0000;*/
-            font-size: 28px;
+            font-size: 26px;
             color: #ffffe5;
             overflow: hidden;
         }
-        .weather .temperature {
-            margin-left: 20px;
-            line-height: 50px;
-            font-size: 30px;
-            color: #e6c787;
-        }
 
         .datenow {
-            margin: 40px 100px 10px 100px;
+            margin: 20px 60px 10px 100px;
             /*background-color: #f374a1;*/
             text-align: center;
-            line-height: 47px;
-            /*text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.2);*/
+            line-height: 42px;
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.2);
         }
 
         .datenow h1 {
-            font-size: 32px;
+            font-size: 26px;
             list-style: none;
             margin: 0;
             color: #ffffe5;
         }
 
         .datenow h2 {
-            font-size: 40px;
+            font-size: 36px;
             letter-spacing: 1px;
-            color: #e30011;
+            color: #ceb070;
             margin: 0;
         }
 
         .datenow h3 {
-            font-size: 24px;
+            font-size: 20px;
             list-style: none;
             margin: 0;
             color: #ffffe5;
         }
 
-		.main_left {
+        .main {
+            margin: 20px;
+            display: inline-table;
+        }
+		 .main_left {
             width: 720px;
-			margin:40px 40px 40px 60px;
+			margin:10px;
             display: inline-table;
         }
 
         .marq {
             color: #00e1ff;
             font-size: 36px;
+            line-height: 56px;;
             letter-spacing: 1px;
             overflow: hidden;
             width: 100%;
-            margin-bottom: 30px;
         }
 
         .table_style {
@@ -138,10 +136,7 @@
             border: 2px solid #ceb070;
         }
 		.table_foot{
-		    font-size:28px;
-            color:#ffffe5;
-            margin-top: 20px;
-        }
+		position:fixed; bottom:20px;left:20px; color:#c4c4c4}
 		.btn_style{
 		    font-family: Microsoft Yahei;
 		border: 2px solid #ceb070;
@@ -154,8 +149,8 @@
 			margin: 20px;
 		}
 		.main_right{
-		    width: 1000px;
-			margin:40px 0 40px 0;
+		    width: 1100px;
+			margin:20px;
             display: inline-table;
 		}
 
@@ -165,29 +160,27 @@
 <div class="p10">
     <div class="head">
         <div class="logo fl"><img src="img/logo.png" width="145" height="153"></div>
-
-        <div class="weather fr">
-            <div class="fl"><img src="img/sw_001.png"></div>
-            <div class="temperature fl">22 ~ 14℃</div>
-            <div class="fl">5月7日 晴转多云</div>
-        </div>
-        <div class="weather fr">
-            <div class="fl"><img src="img/sw_001.png"></div>
-            <div class="temperature fl">22 ~ 14℃</div>
-            <div class="fl">5月7日 晴转多云</div>
-        </div>
-        <div class="weather fr">
-            <div class="fl"><img src="img/sw_001.png"></div>
-            <div class="temperature fl">22 ~ 14℃</div>
-            <div class="fl">5月7日 晴转多云</div>
-        </div>
-
         <div class="datenow fr">
             <h1>2016年5月5日</h1>
 
             <h2>14:40:48</h2>
 
             <h3>丙申猴年四月初八</h3>
+        </div>
+        <div class="weather fr">
+            <div><img src="img/sw_001.png"></div>
+            <div>22 ~ 14℃</div>
+            <div>5月7日 晴转多云</div>
+        </div>
+        <div class="weather fr">
+            <div><img src="img/sw_001.png"></div>
+            <div>22 ~ 14℃</div>
+            <div>5月6日 晴转多云</div>
+        </div>
+        <div class="weather fr">
+            <div><img src="img/sw_001.png"></div>
+            <div>22 ~ 14℃</div>
+            <div>5月5日 晴转多云</div>
         </div>
         <div class="clear"></div>
     </div>
@@ -218,8 +211,8 @@
                     </th>
                 </tr>
 				</table>
-				<div id="table_page" style="overflow: hidden; height: 520px;border-bottom: 2px solid #ceb070;">
-  				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_style" id="marquee_table">
+				<div id="table_page" style="overflow: hidden; height: 546px;">  
+  				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_style" id="table">
                 <tr>
                     <td width="20%">意大利<br>
                         <span>Italy Type</span>
@@ -314,25 +307,40 @@
   
             </table>
 			
-			 </div>
-            <script>
-                (function(){
-                    var marquee = document.getElementById('marquee_table');
-                    var offset=0;
-                    var scrollheight =marquee.offsetHeight;
-                    var firstNode = marquee.children[0].cloneNode(true);
-                    marquee.appendChild(firstNode);//还有这里
-                    setInterval(function(){
-                        if(offset == scrollheight){
-                            offset = 0;
-                        }
-                        marquee.style.marginTop = "-"+offset+"px";
-                        offset += 1;
-                    },50);
-                })();
-            </script>
-
+			 </div>  
 			 <div class="table_foot">人民币(RMB)：元/房/天(YUAN/ROOM/DAY)</div>
+			<input type="button" class="btn_style" id="btnUp" value="上翻↑">
+<input type="button" class="btn_style" id="btnDown" value="下翻↓">
+				<script>
+				$(
+				function(){
+				$("#table").css('position','relative');
+				$("#table").css('top','0');
+				var top=0;
+				var up=function(){
+					console.log(1);
+					if(top<=-68)
+					{
+						top=top+68;
+					}
+					console.log(top);
+					$("#table").css('top',top+"px");
+				};
+				
+				var down=function(){
+				console.log(2);
+					if(top>=$("#table tr").length*68*(-1)+68)
+					{
+						top=top-68;
+					}
+					console.log(top);
+					$("#table").css('top',top+"px");
+				};
+				
+				$("#btnUp").click(function(){up();});
+				$("#btnDown").click(function(){down();});
+				});
+				</script>
 				
 				
         </div>
@@ -367,18 +375,17 @@
 		<script>
 			$(function(){
 				<!--调用Luara示例-->
-				$(".example2").luara({width:"1000",height:"550",interval:4500,selected:"seleted",deriction:"left"});
+				$(".example2").luara({width:"1100",height:"600",interval:4500,selected:"seleted",deriction:"left"});
 	
 			});
 		</script>
 		
 		<style>
-            .clock_area{
-                margin:10px 20px;
-            }
+		.clock_area{
+		margin:20px;}
 			.jcgmt-container {
 				float:left;
-				padding:0 22px ;
+				padding:0 30px ;
 			}
 			.jcgmt-container .jcgmt-lbl {
 				font-size:15px;
@@ -387,9 +394,6 @@
 				text-align: center;
 				width: 150px;
 				margin: 0 auto;
-
-                position: relative;
-                top: 145px;
 			}
 			.jcgmt-clockHolder {
 				width:100px; 
@@ -415,62 +419,50 @@
 				font-size: 14px;
 				color: #c4c4c4;
 				text-align:center;
+				margin-left:8px;
 			}
-            .jcgmt-digital{
-                display: none;
-            }
 			
 		</style>
 		<div class="clock_area">
-		        <div id="clock_Beijing"></div>
-				<div id="clock_Paris"></div>
-				<div id="clock_NewYork"></div>
-				<div id="clock_London"></div>
-				<div id="clock_Sydney"></div>
+		        <div id="clock_hou"></div>
+				<div id="clock_india"></div>
+				<div id="clock_korea"></div>
+				<div id="clock_uk"></div>
+				<div id="clock_tokyo"></div>
 		</div>
 		 <script>
             $(document).ready(function(){
 
-                $('#clock_Beijing').jClocksGMT(
+                $('#clock_hou').jClocksGMT(
                 {
-                    title: 'Beijing 北京',
-                    offset: '+8',
-                    date: true,
-                    dateformat: 'YYYY/MM/DD',
-                    skin: 4
-                });
-
-                $('#clock_Paris').jClocksGMT(
-                {
-                    title: 'Paris 巴黎',
-                    offset: '+1',
-                    date: true,
+                    date: true, 
                     dateformat: 'YYYY/MM/DD', 
                     skin: 4
                 });
 
-                $('#clock_NewYork').jClocksGMT(
+                $('#clock_india').jClocksGMT(
                 {
-                    title: 'NewYork 纽约',
-                    offset: '-5',
-                    date: true,
+                    date: true, 
                     dateformat: 'YYYY/MM/DD', 
                     skin: 4
                 });
 
-                $('#clock_London').jClocksGMT(
+                $('#clock_korea').jClocksGMT(
                 {
-                    title: 'London 伦敦',
-                    offset: '0',
-                    date: true,
+                    date: true, 
                     dateformat: 'YYYY/MM/DD', 
                     skin: 4
                 });
-				 $('#clock_Sydney').jClocksGMT(
-                {
-                    title: 'Sydney 悉尼',
-                    offset: '+10',
-                    date: true,
+
+                $('#clock_uk').jClocksGMT(
+                {   
+                    date: true, 
+                    dateformat: 'YYYY/MM/DD', 
+                    skin: 4
+                });
+				 $('#clock_tokyo').jClocksGMT(
+                {   
+                    date: true, 
                     dateformat: 'YYYY/MM/DD', 
                     skin: 4
                 });
