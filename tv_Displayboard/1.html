@@ -30,8 +30,15 @@ console.log(2);
 	$("#table").css('top',top+"px");
 };
 
-$("#btnUp").click(function(){up();});
-$("#btnDown").click(function(){down();});
+//    window.setTimeout(function(){down();},3000); //3秒后自动向下翻
+    window.setInterval(function(){down();},3000); //每隔3秒自动向下翻
+
+//    var int=self.setInterval(function(){
+//        $("span.next").click();
+//    },5000);
+
+    //$("#btnUp").click(function(){up();});   //点击按钮上翻
+    //$("#btnDown").click(function(){down();});   //点击按钮下翻
 });
 </script>
 </head>

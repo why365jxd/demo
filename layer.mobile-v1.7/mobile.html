@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>layer弹层组件移动版</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="css/demo.css" type="text/css" rel="stylesheet">
+    <script src="js/layer.js"></script>
+    <link href="css/layer.css" type="text/css" rel="styleSheet" id="layermcss">
+
+</head>
+
+
+<body style="position: static;">
+
+<header>
+    <div class="main">
+        <h1>Layer For Mobile<code>
+            <script>document.write(layer.v)</script>
+            1.8</code></h1>
+        <nav>
+            <a href="http://layer.layui.com/mobile/api.html">文档</a>
+            <a href="http://res.layui.com/download/layer.mobile-v1.7.zip" id="downs" target="_blank">下载</a>
+            <a href="http://layer.layui.com/">PC版</a>
+        </nav>
+    </div>
+</header>
+
+<section class="main">
+    <p>为了精确体验，您可通过Chrome设备模式浏览。或通过<a href="javascript:;" id="erweima">手机扫二维码进入</a></p>
+
+    <p>layer mobile是为移动设备（手机、平板等webkit内核浏览器/webview）量身定做的弹层支撑，采用Native JavaScript编写，完全独立于PC版的layer，您需要按照场景选择使用。<a
+            href="https://github.com/sentsin/layer/tree/2.x/src/mobile" target="_blank">GitHub</a></p>
+
+    <h2>小试牛刀</h2>
+
+    <p class="demo" id="trys">
+        <a href="javascript:;">提示框</a>
+        <a href="javascript:;">信息框</a>
+        <a href="javascript:;">询问框</a>
+        <a href="javascript:;">页面层</a>
+        <a href="javascript:;">加载条</a>
+    </p>
+</section>
+
+<section class="main">
+    <a href="javascript:;" id="seecodes" class="button" style="background:#FEAE1B;">查看小试牛刀演示代码</a>
+        <pre id="trycode" style="margin-top: 10px; display: none;">/** 以下是小试牛刀的调用代码（此处不展示事件绑定）*/
+            //提示框
+            layer.open({
+                content: '您好',
+                time: 2 //2秒后自动关闭
+            });
+            //信息框
+            layer.open({
+                title: '信息',
+                content: '移动版和PC版不能同时使用在同一页面。'
+            });
+            //询问框
+            layer.open({
+                title: '提示',
+                content: '您确定要刷新一下本页面吗？',
+                btn: ['嗯', '不要'],
+                yes: function(index){
+                    location.reload();
+                    layer.close(index);
+                }
+            });
+            //页面层
+            layer.open({
+                type: 1,
+                content: '可传入任何内容，支持html。一般用于手机页面中',
+                anim: 0,
+                style: 'position:fixed; bottom:0; left:0; width:100%; height:150px; padding:10px 0; border:none;'
+            });
+            //加载层
+            layer.open({type: 2});
+        </pre>
+
+
+    <h2>注意事项</h2>
+
+    <div class="block">
+        <ol>
+            <li>layer mobile不对iframe提供支持。</li>
+        </ol>
+    </div>
+
+
+    <h2 style="padding:10px 0 5px;">功能演示</h2>
+
+    <p style="margin-top:10px;"><strong>普通信息框，并设置2秒自动关闭：</strong></p>
+    <pre><span id="demo1">layer.open({
+    content: '通过style设置你想要的样式',
+    style: 'background-color:#09C1FF; color:#fff; border:none;',
+    time: 2
+});</span>
+<a href="javascript:;" class="button" onclick="new Function(demo1.innerHTML)();">运行</a>
+</pre>
+
+    <p><strong>提示框，并自定义标题风格：</strong></p>
+    <pre><span id="demo2a">layer.open({
+    title: [
+        '我是标题',
+        'background-color:#8DCE16; color:#fff;'
+    ],
+    content: '标题风格任你定义。。'
+    
+});</span>
+<a href="javascript:;" class="button" onclick="new Function(demo2a.innerHTML)();">运行</a>
+</pre>
+
+    <p><strong>提示框，并显示1个按钮：</strong></p>
+    <pre><span id="demo2">layer.open({
+    content: '通过style设置你想要的样式',
+    btn: ['OK']
+});</span>
+<a href="javascript:;" class="button" onclick="new Function(demo2.innerHTML)();">运行</a>
+</pre>
+
+    <p><strong>询问框，并显示2个按钮，不允许点遮罩关闭：</strong></p>
+    <pre><span id="demo3">layer.open({
+    content: '你是想确认呢，还是想取消呢？',
+    btn: ['确认', '取消'],
+    shadeClose: false,
+    yes: function(){
+        layer.open({content: '你点了确认', time: 1});
+    }, no: function(){
+        layer.open({content: '你选择了取消', time: 1});
+    }
+});</span>
+<a href="javascript:;" class="button" onclick="new Function(demo3.innerHTML)();">运行</a>
+</pre>
+
+    <p><strong>页面层，全屏：</strong></p>
+    <pre><span id="demo5">var pageii = layer.open({
+    type: 1,
+    content: html,
+    style: 'position:fixed; left:0; top:0; width:100%; height:100%; border:none;'
+});</span>
+<a href="javascript:;" class="button"
+   onclick="new Function(&#39;var html = demo5a.value;&#39;+demo5.innerHTML)();">运行</a>
+</pre>
+    <textarea id="demo5a" style="display:none;">    &lt;div style="padding:20px;"&gt;
+        Hi，欢迎您体验移动版的layer弹层组件，这看上去是一个新页面的样子。。。
+        &lt;p&gt;此时你一定迫不及待地想关闭掉它，你只需要执行这么一段代码：&lt;/p&gt;
+        &lt;pre&gt;
+        //elem为您获取的元素对象
+        elem.addEventListener('click', function(){
+        layer.close(pagei); //pagei为你调用layer时返回的索引
+        //还可以通过layer.closeAll(); 它将关闭所有层
+        })
+        &lt;/pre&gt;
+        &lt;a href="javascript:;" class="button" onclick="layer.closeAll(); layer.open({content:'世界恢复原样 →_→', time:2});
+        "&gt;我要关闭！！&lt;/a&gt;
+        &lt;/div&gt;
+    </textarea>
+
+    <h2>注意事项</h2>
+
+    <div class="block">
+        <ol>
+            <li>layer mobile不对iframe提供支持。</li>
+        </ol>
+    </div>
+
+    <h2>结语</h2>
+
+    <p>例子毕竟只是带你入门，我们更希望你认真去阅读文档手册，那里列举了layer所有的接口，它们会帮助你完成形形色色的交互。我们希望你爱layer mobile胜过于layer PC版。</p>
+
+    <p class="demo">
+        <a href="http://layer.layui.com/mobile/api.html">文档</a>
+        <a href="http://sentsin.com/jquery/layer/" target="_blank">layer PC版</a>
+    </p>
+
+
+</section>
+
+
+<script src="js/demo.js"></script>
+
+
+</body>
+</html>

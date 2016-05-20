@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>海外购</title>
+    <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+    <link href="css/swiper.min.css" rel="stylesheet" type="text/css">
+    <script src="js/swiper.min.js" type="text/javascript"></script>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <style>
+        .hwg_brand {
+            width: 96%;
+            padding: 2%;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #dbdbdb;
+            padding-bottom: 10%;
+        }
+
+        .hwg_brand .title {
+            font-size: 1.8rem;
+            color: #555555;
+            margin-bottom: 2%;
+        }
+
+        .hwg_brand .title span {
+            font-size: 1.4rem;
+            color: #999999;
+        }
+
+        .hwg_brand .swiper-container {
+            width: 100%;
+            margin: 0 auto;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hwg_brand .swiper-slide {
+
+        }
+
+        .hwg_brand .swiper-slide a {
+            width: 90%;
+            padding: 5%;
+            text-align: center;
+            display: inherit;
+            box-shadow: inset 0 0 0 1px #dbdbdb;
+        }
+
+        .hwg_brand .swiper-slide a img {
+            width: 100%;
+        }
+
+        .hwg_brand .swiper-slide a span {
+            width: 100%;
+            color: #555555;
+            font-size: 1.2rem;
+            height: 2rem;
+            line-height: 2rem;
+            overflow: hidden;
+            display: block;
+        }
+
+        .hwg_brand .swiper-pagination {
+            margin-top: 12px;
+            left: 0;
+            width: 100%;
+        }
+
+        .hwg_brand .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #555555;
+        }
+
+        .hwg_brand .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+        }
+
+
+        .hwg_class {
+            width: 100%;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #dbdbdb;
+            margin-top: 10px;
+        }
+
+        .hwg_class .title {
+            font-size: 1.8rem;
+            padding: 2%;
+            color: #555555;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .hwg_class .swiper-container{
+            /*position:fixed;*/
+            background:rgba(255,255,255,0.85);
+            text-align:center;
+            width: 96%;
+            padding: 2%;
+            top: 0;
+            z-index: 10;
+        }
+        .hwg_class .swiper-container .swiper-slide{
+            line-height: 2.6rem;
+            font-size: 1.4rem;
+        }
+        .hwg_class .swiper-container .swiper-slide a{
+            color:#333;
+        }
+        .hwg_class .swiper-container .swiper-slide a:active{
+            color:#ff0000;
+        }
+        .hwg_class .swiper-container .current a{
+            color: #e5004b;
+            border-bottom: 2px solid #e5004b;
+        }
+        .hwg_class .swiper-container .arrow{
+            position: absolute;
+            right: 2%;
+            top: 30%;
+            color:#dbdbdb;
+            font-size: 1.6rem;
+            font-weight: bold;
+            font-family: "Helvetica Neue";
+        }
+
+    </style>
+</head>
+<body>
+<div class="hwg_brand">
+    <div class="title">
+        热门品牌
+        <span>- 美素美素Frisoriso</span>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+            <div class="swiper-slide"><a><img src="img/logo01.jpg"/><span>美素美素Frisoriso</span></a></div>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.hwg_brand .swiper-container', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 3,
+            slidesPerColumn: 2,
+            paginationClickable: true,
+            spaceBetween: 10
+        });
+    </script>
+
+</div>
+
+<div class="hwg_class">
+    <div class="title">
+        热门分类
+    </div>
+    <!--滑动导航-->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><a>特色推荐</a></div>
+                <div class="swiper-slide"><a>Pre段</a></div>
+                <div class="swiper-slide"><a>1段</a></div>
+                <div class="swiper-slide"><a>2段</a></div>
+                <div class="swiper-slide"><a>3段</a></div>
+                <div class="swiper-slide"><a>4段</a></div>
+                <div class="swiper-slide"><a>5段</a></div>
+                <div class="swiper-slide"><a>特殊配方</a></div>
+                <div class="swiper-slide"><a>成人奶粉</a></div>
+            </div>
+            <div class="arrow"> > </div>
+        </div>
+    <script>
+        var swiper = new Swiper('.hwg_class .swiper-container', {   //横向拖动jq
+            pagination: '.hwg_class .swiper-pagination',
+            slidesPerView: 5,
+            paginationClickable: true,
+            spaceBetween: 0
+        });
+    </script>
+    <script>
+        $(".swiper-slide").click(function(){   //导航点击事件
+            $(this).addClass("current");
+            $(this).siblings().removeClass("current");
+        });
+    </script>
+
+    <!--滑动导航end-->
+</div>
+</body>
+</html>
