@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>疾病预防</title>
+    <link href="css/m.base.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script language="javascript">
+        var fp =0;
+        $(document).keydown(function (event) {
+            switch (event.keyCode) {
+                case 27:  //ESC 键值 返回上一步
+                    history.go(-1);
+                    break;
+
+                case 38: //↑
+                    fp =fp - 200;
+                    break;
+
+                case 40: //↓
+                    fp =fp + 200;
+                    break;
+            }
+            FocusPage();
+            return false;
+        });
+
+        function FocusPage(){
+            var conpage = $(".yl_content").height();
+            var infopage = $(".infocontent").outerHeight(true);
+
+            if (fp < 0) { //不可低于0
+                fp = 0
+            }
+            if (fp > infopage-200) { //不可超过最大，最后加200高度不至于底部空白太大
+                fp = infopage-200;
+            }
+
+            $(".yl_info_area").css("top",-fp);
+
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="main">
+
+    <div class="top_header">
+        <div class="y_class fl"><img src="img/y_class.png"/> </div>
+        <div class="y_menu fl">
+            <li id="ym1">疾病预防</li>
+        </div>
+    </div>
+
+    <div class="yl_content">
+        <div class="yl_info_area">
+            <div class="infotitle">糖尿病预防从日常做起 七个细节需注意</div>
+            <div class="infocontent">
+                <img src="img/info_pic.jpg" />
+                一旦患有糖尿病对健康的危害是很大的，所以，更应该做好日常的预防工作，避免患发此病。那么生活中都有什么样的方法来预防糖尿病呢？下面我们就来具体看看：<br/><br/>
+
+                食用坚果<br/>
+
+                准确地说，是食用杏仁、核桃和其他树生坚果。研究表明经常食用树生坚果与患糖尿病的风险降低之间存在着相关性。即使是食用花生也会起到有益作用。然而，经常食用并不意味着大量食用；每天吃一小把就可以了，以避免热量堆积。<br/><br/>
+
+                多吃柑橘类水果<br/>
+
+                橙子和橙汁实际上有助于糖尿病患者对病情进行管理。不仅仅是橙子具有这样的功效，柚子、柠檬和其他柑橘类水果都有类似的保护效果。早期的动物研究发现，柑橘的提取物能延缓葡萄糖的吸收，同时也能抑制葡萄糖在小肠和肝脏内的移动。<br/><br/>
+
+                食用坚果<br/>
+
+                准确地说，是食用杏仁、核桃和其他树生坚果。研究表明经常食用树生坚果与患糖尿病的风险降低之间存在着相关性。即使是食用花生也会起到有益作用。然而，经常食用并不意味着大量食用；每天吃一小把就可以了，以避免热量堆积。<br/><br/>
+
+                多吃柑橘类水果<br/>
+
+                橙子和橙汁实际上有助于糖尿病患者对病情进行管理。不仅仅是橙子具有这样的功效，柚子、柠檬和其他柑橘类水果都有类似的保护效果。早期的动物研究发现，柑橘的提取物能延缓葡萄糖的吸收，同时也能抑制葡萄糖在小肠和肝脏内的移动。<br/><br/>
+            </div>
+    </div>
+    </div>
+
+    <div class="con_page_pro">请按遥控器 ▲▼ 键 翻页</div>
+
+</div>
+
+</body>
+</html>

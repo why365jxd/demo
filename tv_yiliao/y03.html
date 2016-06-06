@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>疾病预防</title>
+    <link href="css/m.base.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script language="javascript">
+        var fp =0;
+        $(document).keydown(function (event) {
+            switch (event.keyCode) {
+                case 27:  //ESC 键值 返回上一步
+                    history.go(-1);
+                    break;
+
+                case 38: //↑
+                    fp =fp - 200;
+                    break;
+
+                case 40: //↓
+                    fp =fp + 200;
+                    break;
+            }
+            FocusPage();
+            return false;
+        });
+
+        function FocusPage(){
+            var conpage = $(".yl_content").height();
+            var infopage = $(".infocontent").outerHeight(true);
+
+            if (fp < 0) { //不可低于0
+                fp = 0
+            }
+            if (fp > infopage-200) { //不可超过最大，最后加200高度不至于底部空白太大
+                fp = infopage-200;
+            }
+
+            $(".yl_info_area").css("top",-fp);
+
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="main">
+
+    <div class="top_header">
+        <div class="y_class fl"><img src="img/y_class.png"/> </div>
+        <div class="y_menu fl">
+            <li id="ym1">疾病预防</li>
+        </div>
+    </div>
+
+    <div class="yl_content">
+        <div class="yl_info_area">
+            <div class="infotitle">夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="infocontent">
+                <video autoplay="autoplay" loop="loop" controls="controls">
+                    <source src="http://www.runoob.com/try/demo_source/movie.mp4"  type="video/mp4">
+                    <source src="http://www.runoob.com/try/demo_source/movie.ogg"  type="video/ogg">
+                    您的浏览器不支持 HTML5 video 标签。
+                </video>
+                即将到来的夏天是让很多妈妈发愁的季节，因为在这个时段婴幼儿的肠道显得更为脆弱，拉肚子、食欲不振等等问题会频频找上门，而这势必会影响到幼儿的身体发育。其实，这些小问题大部分可以从预防开始。<br/><br/>
+
+                在饮食中，要合理膳食，坚持做到不喝生水，不进食不洁食品，不吃变质食品。另外，小儿夏季最忌讳冷的、热的、油腻的一起吃;饭前吃水果、冷饮的习惯，容易导致孩子正餐吃不下去，打乱了吃饭规律，造成孩子消化液分泌失常。<br/><br/>
+
+                家长要合理掌握孩子“进口”的冷饮数量，不能一味满足孩子的要求，因为宝宝的肠胃功能发育还不完善，过多地食用冷饮或过冷食物容易造成他们的胃黏膜损伤，还会影响胃肠道的消化、吸收功能。<br/><br/>
+
+                即将到来的夏天是让很多妈妈发愁的季节，因为在这个时段婴幼儿的肠道显得更为脆弱，拉肚子、食欲不振等等问题会频频找上门，而这势必会影响到幼儿的身体发育。其实，这些小问题大部分可以从预防开始。<br/><br/>
+
+                在饮食中，要合理膳食，坚持做到不喝生水，不进食不洁食品，不吃变质食品。另外，小儿夏季最忌讳冷的、热的、油腻的一起吃;饭前吃水果、冷饮的习惯，容易导致孩子正餐吃不下去，打乱了吃饭规律，造成孩子消化液分泌失常。<br/><br/>
+
+                家长要合理掌握孩子“进口”的冷饮数量，不能一味满足孩子的要求，因为宝宝的肠胃功能发育还不完善，过多地食用冷饮或过冷食物容易造成他们的胃黏膜损伤，还会影响胃肠道的消化、吸收功能。<br/><br/>
+
+                即将到来的夏天是让很多妈妈发愁的季节，因为在这个时段婴幼儿的肠道显得更为脆弱，拉肚子、食欲不振等等问题会频频找上门，而这势必会影响到幼儿的身体发育。其实，这些小问题大部分可以从预防开始。<br/><br/>
+
+                在饮食中，要合理膳食，坚持做到不喝生水，不进食不洁食品，不吃变质食品。另外，小儿夏季最忌讳冷的、热的、油腻的一起吃;饭前吃水果、冷饮的习惯，容易导致孩子正餐吃不下去，打乱了吃饭规律，造成孩子消化液分泌失常。<br/><br/>
+
+                家长要合理掌握孩子“进口”的冷饮数量，不能一味满足孩子的要求，因为宝宝的肠胃功能发育还不完善，过多地食用冷饮或过冷食物容易造成他们的胃黏膜损伤，还会影响胃肠道的消化、吸收功能。<br/><br/>
+            </div>
+    </div>
+    </div>
+
+    <div class="con_page_pro">请按遥控器 ▲▼ 键 翻页</div>
+
+</div>
+
+</body>
+</html>

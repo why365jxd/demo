@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>健康医疗</title>
+    <link href="css/m.base.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script language="javascript">
+        //键盘操作
+        var foc = 1;
+        var topm = 1;
+        var con = 1;
+        $(document).keydown(function (event) {
+            switch (event.keyCode) {
+                case 13:  //回车
+                    GetEnter(con);
+                    break;
+                case 37: //←
+                    if(foc == 1){
+                        topm--;
+                        FocusTopmenu(topm);
+                    }
+                    if(foc == 2){
+                        con--;
+                        FocusContent(con);
+                    }
+
+                    break;
+
+                case 38: //↑
+                    if(foc == 2){
+                        con=con-2;
+                        if(con < 1){  //判断是否要返回上一级
+                            $(".yl_content li").removeClass("yl_content_over");
+                            FocusTopmenu(topm);
+                        }else{
+                            FocusContent(con);
+                        }
+
+                    }
+                    break;
+
+                case 39: //→
+                    if(foc == 1){
+                        topm++;
+                        FocusTopmenu(topm);
+                    }
+                    if(foc == 2){
+                        con++;
+                        FocusContent(con);
+                    }
+                    break;
+
+                case 40: //↓
+                    if(foc == 1){
+                        conok = 0; //判断是否第一次
+                        FocusContent(con);
+                    }
+                    if(foc == 2){
+                        if(conok == 0){
+                            conok=1;
+                            con=1;
+                        }else{
+                            con=con+2;
+                            FocusContent(con);
+                        }
+                    }
+                    break;
+
+            }
+            return false;
+        });
+
+
+        function FocusTopmenu(t) {      //顶部菜单
+            foc = 1;
+            if (topm < 1) { //不可低于0
+                topm = 1
+            }
+            if (topm > 3) { //不可超过最大
+                topm = 3
+            }
+            $(".y_menu li").removeClass("y_menu_over");
+            $("#ym" + topm).addClass("y_menu_over");
+
+        }
+        function FocusContent(c){
+            foc = 2;
+            if (con < 1) { //不可低于0
+                con = 1
+            }
+            if (con > 14) { //不可超过最大
+                con = 14
+            }
+
+            // 4行翻页
+            var gbt = c;
+            var ab = $(".yl_content li").outerHeight(true);
+            if ( gbt/4 > 2) {
+                $(".yl_content_area").css("top",-ab*4);
+            }else{
+                $(".yl_content_area").css("top","0");
+            }
+
+            $(".yl_content li").removeClass("yl_content_over");
+            $("#yc" + con).addClass("yl_content_over");
+        }
+
+        function GetEnter(e){
+
+            var LinkUrl = $("#yc" + con).attr('title'); //获得title中的url
+            if(LinkUrl){
+                location.href = LinkUrl;
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<div class="main">
+
+    <div class="top_header">
+        <div class="y_class fl"><img src="img/y_class.png"/> </div>
+        <div class="y_menu fl">
+            <li id="ym1" class="y_menu_over">疾病预防</li>
+            <li id="ym2">养生生活</li>
+            <li id="ym3">医疗常识</li>
+        </div>
+    </div>
+
+    <div class="yl_content">
+        <div class="yl_content_area">
+        <li id="yc1" title="y02.html">
+            <img src="img/c_pic.png">
+            <div class="title">1夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">求医网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc2" title="y03.html">
+            <img src="img/c_pic2.png">
+            <div class="title">2夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">中国食品科技网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc3" title="y04.html">
+            <img src="img/c_pic.png">
+            <div class="title">3夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">求医网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc4" title="http://www.baidu.com">
+            <img src="img/c_pic.png">
+            <div class="title">4夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">中国食品科技网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc5">
+            <img src="img/c_pic2.png">
+            <div class="title">5夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">求医网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc6">
+            <img src="img/c_pic.png">
+            <div class="title">6夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">中国食品科技网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc7">
+            <img src="img/c_pic.png">
+            <div class="title">7夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">求医网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc8">
+            <img src="img/c_pic.png">
+            <div class="title">8夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">中国食品科技网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc9">
+            <img src="img/c_pic.png">
+            <div class="title">9夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">求医网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc10">
+            <img src="img/c_pic.png">
+            <div class="title">10夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">中国食品科技网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc11">
+            <img src="img/c_pic.png">
+            <div class="title">11夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">求医网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc12">
+            <img src="img/c_pic.png">
+            <div class="title">12夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">中国食品科技网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc13">
+            <img src="img/c_pic.png">
+            <div class="title">13夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">求医网 <span>2016-05-13 08:10</span></div>
+        </li>
+        <li id="yc14">
+            <img src="img/c_pic.png">
+            <div class="title">14夏季婴幼儿肠道疾病预防很重要夏季婴幼儿肠道疾病预防很重要</div>
+            <div class="source">中国食品科技网 <span>2016-05-13 08:10</span></div>
+        </li>
+    </div>
+    </div>
+    <div class="con_page">1/6</div>
+
+</div>
+
+</body>
+</html>
