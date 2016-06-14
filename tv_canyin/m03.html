@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>餐饮美食</title>
+    <link href="css/m.base.css" rel="stylesheet" type="text/css">
+    <link href="css/cyms_style.css" rel="stylesheet" type="text/css">
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script language="javascript">
+        //键盘操作
+        var foc = 1;
+        var bought = 1;
+        var sumbox = 1;
+
+        $(document).keydown(function (event) {
+            switch (event.keyCode) {
+                case 13:  //回车
+                    if(foc == 1){
+                        GetBoughtEnter(bought);
+                    }
+                    if(foc == 2){
+                        GetSumboxEnter(sumbox);
+                    }
+                    break;
+
+                case 37: //←
+                    if(foc == 1){
+                        bought--;
+                        FocusBought(bought);
+                    }
+                    if(foc == 2){
+                        sumbox--;
+                        FocusSumbox(sumbox);
+                    }
+                    break;
+
+                case 38: //↑
+
+                    break;
+
+                case 39: //→
+                    if(foc == 1){
+                        bought++;
+                        FocusBought(bought);
+                    }
+                    if(foc == 2){
+                        sumbox++;
+                        FocusSumbox(sumbox);
+                    }
+                    break;
+
+                case 40: //↓
+                    if(foc == 1){
+                        sumboxok = 0; //判断是否第一次
+                        FocusSumbox(sumbox);
+                    }
+
+                    break;
+
+            }
+            return false;
+        });
+
+
+        function FocusBought(bou) {      //顶部购买
+            foc = 1;
+            if (bought < 1) { //不可低于0
+                bought = 1
+            }
+            if (bought > 3) { //不可超过最大
+                bought = 3
+            }
+
+            $(".bought_menu li").removeClass("bought_menu_over");
+            $("#bou" + bought).addClass("bought_menu_over");
+
+        }
+
+        function FocusSumbox(){
+            foc = 2;
+            if (sumbox < 1) { //不可低于0
+                sumbox = 1
+            }
+            if (sumbox > 3) { //不可超过最大
+                sumbox = 3
+            }
+
+            $(".sumbox i ,.sumbox div").removeClass("over");
+//            $(".sumbox").each(function(){
+//                $(this).removeClass("over");
+//            });
+            $("#sum" + sumbox).addClass("over");
+
+        }
+
+        function GetSumboxEnter(se){
+            if(se == 1){
+                numDec();
+            }
+            if(se == 2){
+                numAdd();
+            }
+
+        }
+
+        //        var single = 22.50;  //商品单价
+        //        $(document).ready(function(){  //初始赋值价格
+        //            $("#totalPrice").html(single.toFixed(2));
+        //        });
+
+        /*商品数量+1*/
+        function numAdd(){
+            var num_add = parseInt($("#sumbox_num").val()) + 1;
+            if($("#sumbox_num").val()==""){
+                num_add = 1;
+            }
+            $("#sumbox_num").val(num_add);
+//            var total = single * num_add;
+//            $("#totalPrice").html(total.toFixed(2));
+        }
+
+        /*商品数量-1*/
+        function numDec() {
+            var num_dec = parseInt($("#sumbox_num").val()) - 1;
+            if (num_dec < 1) {
+                //购买数量必须大于或等于1
+                alert("必须大于 1 份");
+            } else {
+                $("#sumbox_num").val(num_dec);
+//                var total = single * num_dec;
+//                $("#totalPrice").html(total.toFixed(2));
+            }
+        }
+
+        function GetBoughtEnter(be){
+            var LinkUrl = $("#bou" + be).attr('title'); //获得title中的url
+            if(LinkUrl){
+                location.href = LinkUrl;
+            }
+
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="main">
+
+    <div class="top_header">
+        <div class="ms_class fl"><img src="img/y_class2.png"/> </div>
+        <div class="ms_title fl">菜品介绍</div>
+
+        <div class="bought_menu">
+            <li id="bou1" class="bought_menu_over"><img src="img/g_01.png" /></li>
+            <li id="bou2" title="m04.html"><img src="img/g_02.png" /></li>
+            <li id="bou3"><img src="img/g_03.png" /></li>
+        </div>
+
+    </div>
+
+
+
+    <div class="intro_content">
+            <li>
+                <img src="img/c_pic2.jpg">
+                <div class="title">菜名：辣子侗家腌鱼</div>
+                <div class="source">辣子鸡是一道川渝地区名肴，缘于重庆歌乐山而得名。此菜成菜色泽棕红油亮，麻辣味浓。咸鲜醇香，略带回甜。一般以鸡为主料，加上葱、干辣椒、花椒、盐、胡椒、味精等多种材料精制而成，营养丰富，味道鲜美，各地制作也各有特色。</div>
+                <div class="price">价格：<span>￥<i id="totalPrice">22.50</i></span></div>
+                <div class="number"><span>数量：</span>
+                    <div class="sumbox">
+                        <i id="sum1">-</i>
+                        <input type="text" name="sumbox_num" id="sumbox_num" value="1" minnum="1">
+                        <i id="sum2">+</i>
+                        <div id="sum3" class="btn">加入购物车</div>
+                    </div>
+                </div>
+            </li>
+        </div>
+    </div>
+    <div class="content_page">1/6</div>
+
+</div>
+
+</body>
+</html>
