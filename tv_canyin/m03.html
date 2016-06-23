@@ -100,6 +100,12 @@
             if(se == 2){
                 numAdd();
             }
+            if(se == 3){
+                var LinkUrl = $("#sum3").attr('title'); //获得title中的url
+                if(LinkUrl){
+                    location.href = LinkUrl;
+                }
+            }
 
         }
 
@@ -133,9 +139,11 @@
         }
 
         function GetBoughtEnter(be){
-            var LinkUrl = $("#bou" + be).attr('title'); //获得title中的url
-            if(LinkUrl){
-                location.href = LinkUrl;
+            if(foc == 1){
+                var LinkUrl = $("#bou" + bought).attr('title'); //获得title中的url
+                if(LinkUrl){
+                    location.href = LinkUrl;
+                }
             }
 
         }
@@ -151,9 +159,9 @@
         <div class="ms_title fl">菜品介绍</div>
 
         <div class="bought_menu">
-            <li id="bou1" class="bought_menu_over"><img src="img/g_01.png" /></li>
+            <li id="bou1" title="m00.html" class="bought_menu_over"><img src="img/g_01.png" /></li>
             <li id="bou2" title="m04.html"><img src="img/g_02.png" /></li>
-            <li id="bou3"><img src="img/g_03.png" /></li>
+            <li id="bou3" title="m05.html"><img src="img/g_03.png" /></li>
         </div>
 
     </div>
@@ -171,7 +179,7 @@
                         <i id="sum1">-</i>
                         <input type="text" name="sumbox_num" id="sumbox_num" value="1" minnum="1">
                         <i id="sum2">+</i>
-                        <div id="sum3" class="btn">加入购物车</div>
+                        <div id="sum3" title="m04.html" class="btn">加入购物车</div>
                     </div>
                 </div>
             </li>

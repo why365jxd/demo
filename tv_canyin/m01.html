@@ -45,6 +45,7 @@
                         if(msc < 1){  //判断是否要返回上一级
                             $(".ms_content li").removeClass("ms_content_over");
                             $(".bought_menu li").removeClass("bought_menu_over");
+                            msc = 1;
                             FocusBigClass(bigc);
                         }else{
                             FocusMsContent(msc);
@@ -100,7 +101,6 @@
             return false;
         });
 
-
         function FocusBigClass(bc) {      //顶部菜单
             foc = 1;
             if (bigc < 1) { //不可低于0
@@ -123,8 +123,11 @@
             $(".ms_menu li").removeClass("ms_menu_over");
             $("#ms" + bigc).addClass("ms_menu_over");
 
-        }
+            $(".ms_content").hide();
+            $("#show" + bigc).show();
+            GetPages(msc);//初始
 
+        }
 
         function FocusBought(u) {      //顶部购买
             foc = 2;
@@ -142,11 +145,14 @@
 
         function FocusMsContent(mc) {      //内容
             foc = 3;
+            var numb = $("#show" + bigc).find("li").size();  //获取最大数量
+            GetPages(msc);
+
             if (msc < 1) { //不可低于0
                 msc = 1
             }
-            if (msc > 11) { //不可超过最大
-                msc = 11
+            if (msc > numb) { //不可超过最大
+                msc = numb
             }
 
             // 2行翻页
@@ -159,18 +165,39 @@
             }
 
             $(".ms_content li").removeClass("ms_content_over");
-            $("#mc" + msc).addClass("ms_content_over");
+            $("#show" + bigc).find("#mc" + msc).addClass("ms_content_over");
 
         }
 
         function GetEnter(e){
-
-            var LinkUrl = $("#mc" + msc).attr('title'); //获得title中的url
-            if(LinkUrl){
-                location.href = LinkUrl;
+            if(foc == 2){
+                var LinkUrl = $("#bou" + bou).attr('title'); //获得title中的url
+                if(LinkUrl){
+                    location.href = LinkUrl;
+                }
+            }
+            if(foc == 3){
+                var LinkUrl = $("#mc" + msc).attr('title'); //获得title中的url
+                if(LinkUrl){
+                    location.href = LinkUrl;
+                }
             }
 
+
         }
+
+        function GetPages(pages){  //页码
+            var num = $("#show" + bigc).find("li").size();  //获取数值数量
+            if(num == 0){
+                var current_p = 0;   //空数据页码
+            }else{
+                var current_p = Math.ceil(pages / 10);   //当前页码
+            }
+            var total_p = Math.ceil(num / 10);
+            $(".content_page #current_page").html(current_p);
+            $(".content_page #total_page").html(total_p);
+        }
+
 
     </script>
 </head>
@@ -182,25 +209,25 @@
         <i class="ms_menu_i arr_l"></i>
         <div class="ms_menu fl">
             <div class="ms_menu_area">
-            <li id="ms1" class="ms_menu_over">鲁菜</li>
-            <li id="ms2">西餐</li>
-            <li id="ms3">小吃快餐</li>
-            <li id="ms4">日本料理</li>
-            <li id="ms5">中式烧烤</li>
-            <li id="ms6">自助餐</li>
-            <li id="ms7">美食料理</li>
-            <li id="ms8">快餐</li>
+                <li id="ms1" class="ms_menu_over">鲁菜</li>
+                <li id="ms2">西餐</li>
+                <li id="ms3">小吃快餐</li>
+                <li id="ms4">日本料理</li>
+                <li id="ms5">中式烧烤</li>
+                <li id="ms6">自助餐</li>
+                <li id="ms7">美食料理</li>
+                <li id="ms8">快餐</li>
             </div>
         </div>
         <i class="ms_menu_i arr_r"></i>
         <div class="bought_menu">
             <!--<li id="bou1" class="bought_menu_over"><img src="img/g_01.png" /></li>-->
-            <li id="bou1"><img src="img/g_02.png" /></li>
-            <li id="bou2"><img src="img/g_03.png" /></li>
+            <li id="bou1" title="m04.html"><img src="img/g_02.png" /></li>
+            <li id="bou2" title="m05.html"><img src="img/g_03.png" /></li>
         </div>
     </div>
 
-    <div class="ms_content">
+    <div class="ms_content"  id="show1">
         <div class="ms_content_area">
             <li id="mc1" title="m02.html">
                 <img src="img/m_pic.jpg">
@@ -259,7 +286,48 @@
             </li>
         </div>
     </div>
-    <div class="content_page">1/6</div>
+
+    <div class="ms_content"  id="show2"  style="display: none">
+        <div class="ms_content_area">
+            <li id="mc1" title="m02.html">
+                <img src="img/m_pic.jpg">
+                <div class="title">索菲亚国际大酒店</div>
+                <div class="source">起送：¥ 20.00</div>
+            </li>
+            <li id="mc2" title="m02.html">
+                <img src="img/m_pic.jpg">
+                <div class="title">索菲亚国际大酒店</div>
+                <div class="source">起送：¥ 20.00</div>
+            </li>
+            <li id="mc3" title="m02.html">
+                <img src="img/m_pic.jpg">
+                <div class="title">索菲亚国际大酒店</div>
+                <div class="source">起送：¥ 20.00</div>
+            </li>
+            <li id="mc4" title="m02.html">
+                <img src="img/m_pic.jpg">
+                <div class="title">索菲亚国际大酒店</div>
+                <div class="source">起送：¥ 20.00</div>
+            </li>
+        </div>
+    </div>
+
+    <div class="ms_content"  id="show3" style="display: none">
+        <div class="ms_content_area">
+            <li id="mc1" title="m02.html">
+                <img src="img/m_pic.jpg">
+                <div class="title">索菲亚国际大酒店</div>
+                <div class="source">起送：¥ 20.00</div>
+            </li>
+            <li id="mc2" title="m02.html">
+                <img src="img/m_pic.jpg">
+                <div class="title">索菲亚国际大酒店</div>
+                <div class="source">起送：¥ 20.00</div>
+            </li>
+        </div>
+    </div>
+
+    <div class="content_page"><span id="current_page"></span>/<span id="total_page"></span></div>
 
 </div>
 

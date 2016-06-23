@@ -25,7 +25,10 @@
                     break;
 
                 case 38: //↑
-
+                    if(foc == 1){
+                        order = order - 2;
+                        FocusOrder(order);
+                    }
                     break;
 
                 case 39: //→
@@ -36,7 +39,10 @@
                     break;
 
                 case 40: //↓
-
+                    if(foc == 1){
+                        order = order + 2;
+                        FocusOrder(order);
+                    }
                     break;
 
             }

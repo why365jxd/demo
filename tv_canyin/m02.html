@@ -15,7 +15,7 @@
         $(document).keydown(function (event) {
             switch (event.keyCode) {
                 case 13:  //回车
-                    GetEnter(con);
+                    GetEnter(bought);
                     break;
 
                 case 37: //←
@@ -45,7 +45,7 @@
                             dilcon = dilcon-5;
                             FocusDisContent(dilcon);
                         }else{
-                            dilcon = 0;  //返回上一级
+                            dilcon = 1;  //返回上一级
                             $(".dishes_content li").removeClass("dishes_content_over");
                             FocusDisclass(dilclass);
                         }
@@ -136,15 +136,23 @@
             $(".dishes_class li").removeClass("dishes_class_over");
             $("#dcl" + dilclass).addClass("dishes_class_over");
 
+            $(".dishes_content").hide();
+            $("#show" + dilclass).show();
+            GetPages(dilcon);//初始
+
         }
 
         function FocusDisContent(dcon) {      //内容
             foc = 3;
+
+            var numb = $("#show" + dilclass).find("li").size();  //获取最大数量
+            GetPages(dilcon);
+
             if (dilcon < 1) { //不可低于0
                 dilcon = 1
             }
-            if (dilcon > 11) { //不可超过最大
-                dilcon = 11
+            if (dilcon > numb) { //不可超过最大
+                dilcon = numb
             }
 
             // 2行翻页
@@ -157,18 +165,37 @@
             }
 
             $(".dishes_content li").removeClass("dishes_content_over");
-            $("#dc" + dilcon).addClass("dishes_content_over");
+            $("#show" + dilclass).find("#dc" + dilcon).addClass("dishes_content_over");
 
         }
 
 
         function GetEnter(e){
-
-            var LinkUrl = $("#yc" + con).attr('title'); //获得title中的url
-            if(LinkUrl){
-                location.href = LinkUrl;
+            if(foc == 1){
+                var LinkUrl = $("#bou" + bought).attr('title'); //获得title中的url
+                if(LinkUrl){
+                    location.href = LinkUrl;
+                }
+            }
+            if(foc == 3){
+                var LinkUrl = $("#dc" + dilcon).attr('title'); //获得title中的url
+                if(LinkUrl){
+                    location.href = LinkUrl;
+                }
             }
 
+        }
+
+        function GetPages(pages){  //页码
+            var num = $("#show" + dilclass).find("li").size();  //获取数值数量
+            if(num == 0){
+                var current_p = 0;   //空数据页码
+            }else{
+                var current_p = Math.ceil(pages / 10);   //当前页码
+            }
+            var total_p = Math.ceil(num / 10);
+            $(".content_page #current_page").html(current_p);
+            $(".content_page #total_page").html(total_p);
         }
 
     </script>
@@ -181,9 +208,9 @@
         <div class="ms_title fl">鲁菜 <span>索菲亚国际大酒店</span></div>
 
         <div class="bought_menu">
-            <li id="bou1" class="bought_menu_over"><img src="img/g_01.png" /></li>
-            <li id="bou2"><img src="img/g_02.png" /></li>
-            <li id="bou3"><img src="img/g_03.png" /></li>
+            <li id="bou1" title="m00.html" class="bought_menu_over"><img src="img/g_01.png" /></li>
+            <li id="bou2" title="m04.html"><img src="img/g_02.png" /></li>
+            <li id="bou3" title="m05.html"><img src="img/g_03.png" /></li>
         </div>
 
     </div>
@@ -206,7 +233,7 @@
     <i class="dishes_class_i arr_r"></i>
     </div>
 
-    <div class="dishes_content">
+    <div class="dishes_content" id="show1">
         <div class="dishes_content_area">
             <li id="dc1" title="m03.html">
                 <img src="img/c_pic.jpg">
@@ -266,7 +293,43 @@
 
         </div>
     </div>
-    <div class="content_page">1/6</div>
+
+    <div class="dishes_content" id="show2" style="display: none">
+        <div class="dishes_content_area">
+            <li id="dc1" title="m03.html">
+                <img src="img/c_pic.jpg">
+                <div class="title">侗家腌鱼</div>
+                <div class="source">￥22.00</div>
+            </li>
+            <li id="dc2" title="m03.html">
+                <img src="img/c_pic.jpg">
+                <div class="title">侗家腌鱼</div>
+                <div class="source">￥22.00</div>
+            </li>
+        </div>
+    </div>
+
+    <div class="dishes_content" id="show3" style="display: none">
+        <div class="dishes_content_area">
+            <li id="dc1" title="m03.html">
+                <img src="img/c_pic.jpg">
+                <div class="title">侗家腌鱼</div>
+                <div class="source">￥22.00</div>
+            </li>
+            <li id="dc2" title="m03.html">
+                <img src="img/c_pic.jpg">
+                <div class="title">侗家腌鱼</div>
+                <div class="source">￥22.00</div>
+            </li>
+            <li id="dc3" title="m03.html">
+                <img src="img/c_pic.jpg">
+                <div class="title">侗家腌鱼</div>
+                <div class="source">￥22.00</div>
+            </li>
+        </div>
+    </div>
+
+    <div class="content_page"><span id="current_page"></span>/<span id="total_page"></span></div>
 
 </div>
 

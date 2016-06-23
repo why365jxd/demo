@@ -6,17 +6,39 @@
     <link href="css/m.base.css" rel="stylesheet" type="text/css">
     <link href="css/cyms_style.css" rel="stylesheet" type="text/css">
     <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="layer/layer.js"></script>
     <script language="javascript">
         //键盘操作
         var foc = 1;
         var bought = 1;
         var cart = 1;
+        var settl = 2;
+        var buss = 1;
+        var entok = 0;
+        var foc_input = 1;
 
         $(document).keydown(function (event) {
             switch (event.keyCode) {
                 case 13:  //回车
+                    if(foc == 1){
+                        GetEnter(bought);
+                    }
                     if(foc == 2){
                         GetCartEnter(cart);
+                    }
+                    if(set == 1){
+                        if(foc < 3){
+                            GetSettlementEnter();
+                        }else if(entok == 0 && settl == 2){
+                            layer.closeAll();
+                            GetBusinessEnter();
+                        }else if(entok == 0 && settl == 1){
+                            EditSettlement();
+                        }
+
+                    }
+                    if(foc == 5){
+                        foc_input = 0;
                     }
 
                     break;
@@ -30,10 +52,35 @@
                         cart--;
                         FocusCart(cart);
                     }
+                    if(foc == 3){
+                        settl--;
+                        FocusSettlement(settl);
+                    }
+                    if(foc == 4){
+                        buss--;
+                        FocusBusiness(buss);
+                    }
                     break;
 
                 case 38: //↑
+                    if(foc == 2){
+                        cart = cart - 1;
+                        if(cart < 1){
+                            $(".sumbox i ,.sumbox div ,.subtotal div").removeClass("over");
+                            FocusBought(bought);
+                        }else{
+                            FocusCart(cart);
+                        }
 
+                    }
+                    if(foc == 3){
+                        settl--;
+                        FocusSettlement(settl);
+                    }
+                    if(foc == 4){
+                        buss = buss - 2;
+                        FocusBusiness(buss);
+                    }
                     break;
 
                 case 39: //→
@@ -45,14 +92,38 @@
                         cart++;
                         FocusCart(cart);
                     }
+                    if(foc == 3){
+                        settl++;
+                        FocusSettlement(settl);
+                    }
+                    if(foc == 4){
+                        buss++;
+                        FocusBusiness(buss);
+                    }
                     break;
 
                 case 40: //↓
                     if(foc == 1){
                         cartok = 0; //判断是否第一次
+                        $(".bought_menu li").removeClass("bought_menu_over");
                         FocusCart(cart);
                     }
-
+                    if(foc == 2){
+                        if(cartok == 0){
+                            cartok = 1;
+                        }else{
+                            cart = cart + 1;
+                            FocusCart(cart);
+                        }
+                    }
+                    if(foc == 3){
+                        settl++;
+                        FocusSettlement(settl);
+                    }
+                    if(foc == 4){
+                        buss = buss + 2;
+                        FocusBusiness(buss);
+                    }
                     break;
 
             }
@@ -131,7 +202,7 @@
             var num_dec = parseInt($("#sumbox_num").val()) - 1;
             if (num_dec < 1) {
                 //购买数量必须大于或等于1
-                alert("必须大于 1 份");
+                layer.msg('必须大于 1 份', {icon: 5});
             } else {
                 $("#sumbox_num").val(num_dec);
                 var total = single * num_dec;
@@ -139,18 +210,124 @@
             }
         }
 
+        function GetSettlementEnter(){
+            foc = 3;
+            //自定义弹窗
+            layer.open({
+                type: 1,
+                title: false,
+                skin: 'layui_settlement_pop', //样式类名
+                area: ['600px', '383px'],
+                closeBtn: 0, //不显示关闭按钮
+                shift: 2,
+//                shadeClose: true, //开启遮罩关闭
+                content: $('.layui_settlement_pop')
+            });
+
+            $("#sett" + settl).addClass("over");
+
+//            $("#sett1").keyup(function(event){
+//                $(".add").html("修改修改修改修改");
+//            });
+
+        }
+
+        function FocusSettlement(set) {      //顶部购买
+            foc = 3;
+            if (settl < 1) { //不可低于0
+                settl = 1;
+            }
+            if (settl > 2) { //不可超过最大
+                settl = 2
+            }
+
+            $(".layui_settlement_pop div").removeClass("over");
+            $("#sett" + settl).addClass("over");
+
+        }
+
+        function GetBusinessEnter(){
+            foc = 4;
+            entok = 1;
+            //自定义弹窗
+            layer.open({
+                type: 1,
+                title: false,
+                skin: 'layui_business_pop', //样式类名
+                area: ['700px', '464px'],
+                closeBtn: 0, //不显示关闭按钮
+                scrollbar: false,
+                shift: 2,
+//                shadeClose: true, //开启遮罩关闭
+                content: $('.layui_business_pop')
+            });
+            $('body .layui-layer').css("background-color","rgba(255,255,255,0)");
+        }
+
+        function FocusBusiness(bus) {      //选择联系商家
+            foc = 4;
+            if (buss < 1) { //不可低于0
+                buss = 1
+            }
+            if (buss > 8) { //不可超过最大
+                buss = 8
+            }
+
+            // 3行翻页
+            var gbt = bus;
+            var ab = $(".layui_business li").outerHeight(true);
+            if ( gbt/3 > 2) {
+                $(".layui_business_area").css("top",-ab*3);
+            }else{
+                $(".layui_business_area").css("top","0");
+            }
+
+            $(".layui_business li").removeClass("layui_business_over");
+            $("#bus" + buss).addClass("layui_business_over");
+
+        }
+
+        function GetEnter(e){
+            if(foc == 1){
+                var LinkUrl = $("#bou" + bought).attr('title'); //获得title中的url
+                if(LinkUrl){
+                    location.href = LinkUrl;
+                }
+            }
+            if(foc == 5){
+                var LinkUrl = $("#bou" + bought).attr('title'); //获得title中的url
+                if(LinkUrl){
+                    location.href = LinkUrl;
+                }
+            }
+
+        }
+
+        function EditSettlement(){
+            foc = 5;
+            if(foc_input == 1){
+                $("input[name='edit2']").focus();
+                $("input[name='edit2']").css("background-color","#ebebe4");
+            }
+            if(foc_input == 0){
+                $("input[name='edit2']").blur();
+                $("input[name='edit2']").css("background"," rgba(255,255,255,0)");
+                foc = 3;
+            }
+
+        }
 
     </script>
 </head>
 <body>
-<div class="main">
+<div class="main" style="display: none0">
 
     <div class="top_header">
         <div class="ms_class fl"><img src="img/y_class2.png"/> </div>
         <div class="ms_title fl">购物车</div>
 
         <div class="bought_menu">
-            <li id="bou1" class="bought_menu_over"><img src="img/g_03.png" /></li>
+            <li id="bou1" title="m05.html" class="bought_menu_over"><img src="img/g_03.png" /></li>
         </div>
 
     </div>
@@ -231,7 +408,63 @@
         <div  id="set1" class="btn">去结算</div>
     </div>
 
+
 </div>
+
+<!--立即结算弹窗-->
+<div class="layui_settlement_pop" style="display: none">
+    <div class="title">确认订单</div>
+    <div class="ico" id="sett1"></div>
+    <div class="name"><input type="text" name="edit1" class="edit" style="width: 100px" value="张 琦"/><input type="text" name="edit2"  class="edit" style="width: 200px" value="138****4587"/></div>
+    <div class="add"><textarea title="" name="edit3"  class="edit" style="width: 566px;height: 126px;">崂山区 松岭路126号三里6栋一单元1002户 松岭路126号三里6栋一单元1002户 崂山区 松岭路126号三里6栋一单元1002户 松岭路126号三里6栋一单元1002户松岭路126号</textarea></div>
+    <div class="btn" id="sett2">立即下单</div>
+    <div class="total">合计：￥125.20</div>
+</div>
+
+<!--选择商家弹窗-->
+<div class="layui_business_pop" style="display: none">
+    <div class="title">联系商家</div>
+    <div class="layui_business">
+        <div class="layui_business_area">
+            <li id="bus1" class="layui_business_over">
+                <img src="img/m_pic.jpg">
+                <div class="name">索菲亚国际大酒店</div>
+            </li>
+            <li id="bus2">
+                <img src="img/m_pic.jpg">
+                <div class="name">索菲亚国际大酒店</div>
+            </li>
+            <li id="bus3">
+                <img src="img/m_pic.jpg">
+                <div class="name">索菲亚国际大酒店</div>
+            </li>
+            <li id="bus4">
+                <img src="img/m_pic.jpg">
+                <div class="name">索菲亚国际大酒店</div>
+            </li>
+            <li id="bus5">
+                <img src="img/m_pic.jpg">
+                <div class="name">索菲亚国际大酒店</div>
+            </li>
+            <li id="bus6">
+                <img src="img/m_pic.jpg">
+                <div class="name">索菲亚国际大酒店</div>
+            </li>
+            <li id="bus7">
+                <img src="img/m_pic.jpg">
+                <div class="name">索菲亚国际大酒店</div>
+            </li>
+            <li id="bus8">
+                <img src="img/m_pic.jpg">
+                <div class="name">索菲亚国际大酒店</div>
+            </li>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+    <div class="prompt">请按遥控器 OK键 确认</div>
+</div>
+
 
 </body>
 </html>

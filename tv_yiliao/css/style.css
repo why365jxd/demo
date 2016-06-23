@@ -51,12 +51,21 @@
     float: left;
     padding: 15px 0;
     border-bottom: 1px solid #58558e;
+    position: relative;
 }
 .yl_content li img{
     float: left;
     width: 120px;
     height: 88px;
     margin:0 30px 0 10px;
+}
+.yl_content li i{
+    background: url("../img/c_pic2.png") no-repeat;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 120px;
+    height: 88px;
 }
 .yl_content li .title{
     font-size: 18px;
