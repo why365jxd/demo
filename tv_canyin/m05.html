@@ -60,12 +60,17 @@
 
             // 翻页
             var gbt = ord;
+            var pages = 1;
             var oro = $(".order_content").height();
             var ab = $("#ord" + gbt).position().top;
             if ( ab > oro) {
+                pages ++;
                 $(".order_content_area").css("top",-oro);
+                $(".content_page #current_page").html(pages);
             }else{
+                pages = 1;
                 $(".order_content_area").css("top","0");
+                $(".content_page #current_page").html(pages);
             }
 
             $(".order_line div").removeClass("over");
@@ -73,6 +78,15 @@
 
         }
 
+        $(function() {
+
+            var numsi = $(".order_line").size();
+            var current_p = Math.ceil(1);
+            var total_p = Math.ceil(numsi / 5);
+            $(".content_page #current_page").html(current_p);
+            $(".content_page #total_page").html(total_p);
+
+        });
 
     </script>
 </head>
@@ -80,7 +94,8 @@
 <div class="main">
 
     <div class="top_header">
-        <div class="ms_class fl"><img src="img/y_class2.png"/> </div>
+        <!--<div class="ms_class fl"><img src="img/y_class2.png"/></div>-->
+        <div class="ms_class fl"><div class="heading">餐饮美食</div></div>
         <div class="ms_title fl">我的订单</div>
 
     </div>
@@ -149,11 +164,10 @@
                 </div>
             </li>
 
-
         </div>
     </div>
 
-    <div class="content_page">1/6</div>
+    <div class="content_page"><span id="current_page"></span>/<span id="total_page"></span></div>
 
 </div>
 

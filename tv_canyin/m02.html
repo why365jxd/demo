@@ -6,12 +6,51 @@
     <link href="css/m.base.css" rel="stylesheet" type="text/css">
     <link href="css/cyms_style.css" rel="stylesheet" type="text/css">
     <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        // 获取URL参数
+        var tmpArr;
+        var QueryString;
+        var URL = document.location.toString();
+        if(URL.lastIndexOf("?")!=-1){
+            QueryString= URL.substring(URL.lastIndexOf("?")+1,URL.length);
+            tmpArr=QueryString.split("&");
+            for (i=0;i<=tmpArr.length - 1;i++) {
+//                var tmpStr=tmpArr[i];
+//                document.write(tmpArr[i] + "<br/>");
+//                document.write(tmpStr.substring(tmpStr.lastIndexOf("=")+1,tmpStr.length) + "<br/>");
+                tmpArr[i] = tmpArr[i].substring(tmpArr[i].lastIndexOf("=")+1,tmpArr[i].length);
+            }
+        }
+        else{
+            QueryString = "";
+        }
+
+    </script>
+
     <script language="javascript">
         //键盘操作
         var foc = 1;
         var bought = 1;
         var dilclass = 1;
         var dilcon = 1;
+
+        $(function () {
+            if(tmpArr){
+//                foc = tmpArr[0];
+                dilclass = tmpArr[1];
+                dilcon = tmpArr[2];
+//                alert(foc);
+                $("#dcl" + dilclass).addClass("dishes_class_over");
+                $(".dishes_content").hide();
+                $("#show" + dilclass).show();
+                ok = 1;  //初始二级
+                dilconok = 1;  //初始三级
+                FocusDisContent(dilcon);
+            }
+
+        });
+
         $(document).keydown(function (event) {
             switch (event.keyCode) {
                 case 13:  //回车
@@ -144,10 +183,9 @@
 
         function FocusDisContent(dcon) {      //内容
             foc = 3;
-
             var numb = $("#show" + dilclass).find("li").size();  //获取最大数量
-            GetPages(dilcon);
 
+            GetPages(dilcon);
             if (dilcon < 1) { //不可低于0
                 dilcon = 1
             }

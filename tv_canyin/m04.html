@@ -69,6 +69,7 @@
                             $(".sumbox i ,.sumbox div ,.subtotal div").removeClass("over");
                             FocusBought(bought);
                         }else{
+                            $("#set" + set).removeClass("over");
                             FocusCart(cart);
                         }
 
@@ -226,10 +227,6 @@
 
             $("#sett" + settl).addClass("over");
 
-//            $("#sett1").keyup(function(event){
-//                $(".add").html("修改修改修改修改");
-//            });
-
         }
 
         function FocusSettlement(set) {      //顶部购买
@@ -362,7 +359,7 @@
                     </div>
                 </div>
 
-                <div class="subtotal">
+                <div class="subtotal" style="display: none0;">
                     <div class="word"><span>*还差15元起送</span>请您继续点餐。</div>
                     <div id="cart7" class="btn">点餐</div>
                 </div>
